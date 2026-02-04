@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Портфолио</title>
+  <title>Portfolio</title>
 
   <!--
     - favicon
@@ -42,17 +42,17 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Ваше имя" width="80">
+          <img src="./assets/images/my-avatar.png" alt="Your Name" width="80">
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Ваше имя">Ваше имя</h1>
+          <h1 class="name" title="Your Name">Your Name</h1>
 
-          <p class="title">Ваша специальность</p>
+          <p class="title" data-i18n="specialty">Full Stack Developer</p>
         </div>
 
         <button class="info_more-btn" data-sidebar-btn>
-          <span>Контакты</span>
+          <span data-i18n="contacts">Contact</span>
 
           <ion-icon name="chevron-down"></ion-icon>
         </button>
@@ -60,6 +60,15 @@
       </div>
 
       <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="fr">FR</button>
+          <span class="lang-separator">|</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
 
         <div class="separator"></div>
 
@@ -86,9 +95,9 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Телефон</p>
+              <p class="contact-title" data-i18n="phone">Phone</p>
 
-              <a href="tel:+70000000000" class="contact-link">+7 (000) 000-00-00</a>
+              <a href="tel:+33000000000" class="contact-link">+33 0 00 00 00 00</a>
             </div>
 
           </li>
@@ -100,9 +109,9 @@
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Локация</p>
+              <p class="contact-title" data-i18n="location">Location</p>
 
-              <address>Ваш город</address>
+              <address data-i18n="city">Clermont-Ferrand, France</address>
             </div>
 
           </li>
@@ -122,12 +131,6 @@
           <li class="social-item">
             <a href="#" class="social-link">
               <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-telegram"></ion-icon>
             </a>
           </li>
 
@@ -156,15 +159,11 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>Обо мне</button>
+            <button class="navbar-link active" data-nav-link data-i18n="about">About</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Портфолио</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Контакты</button>
+            <button class="navbar-link" data-nav-link data-i18n="contact">Contact</button>
           </li>
 
         </ul>
@@ -179,51 +178,45 @@
         - #ABOUT
       -->
 
-      <article class="about  active" data-page="обо мне">
+      <article class="about active" data-page="about">
 
         <header>
-          <h2 class="h2 article-title">Обо мне</h2>
+          <h2 class="h2 article-title" data-i18n="about">About</h2>
         </header>
 
         <section class="about-text">
-          <p>
-            Здесь напишите о себе. Кто вы, чем занимаетесь, какие у вас навыки.
+          <p data-i18n="about_text_1">
+            Welcome to my portfolio. I am a passionate developer specializing in web development and database management.
           </p>
 
-          <p>
-            Добавьте информацию о вашем опыте и специализации.
+          <p data-i18n="about_text_2">
+            I create modern, efficient web applications with a focus on user experience and clean code.
           </p>
         </section>
 
 
         <!--
-          - Проекты
+          - Projects Section
         -->
 
-        <section class="service">
+        <section class="projects-section">
 
-          <h3 class="h3 service-title">Проекты</h3>
+          <h3 class="h3 projects-section-title" data-i18n="my_projects">My Projects</h3>
 
-          <ul class="service-list">
+          <ul class="projects-grid">
 
-            <li class="service-item">
+            <li class="project-card" data-project="soutenances-uca">
+              <figure class="project-card-img">
+                <div class="project-card-icon">
+                  <ion-icon name="eye-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/projet-sql-teacher.png" alt="Gestion des Soutenances UCA" loading="lazy">
+              </figure>
 
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="dev icon" width="40">
+              <div class="project-card-content">
+                <h4 class="project-card-title" data-i18n="project_title">Defense Management Platform — UCA</h4>
+                <p class="project-card-category">Web Application / SQL</p>
               </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Plateforme de Gestion des Soutenances — UCA</h4>
-
-                <p class="service-item-text">
-                  Application web de gestion des soutenances et alternances pour l'Université Clermont Auvergne. 
-                  Développement d'interfaces pour la gestion des vues (tableaux de bord enseignants et administrateurs), 
-                  l'analyse des données des tables et l'édition des enregistrements. 
-                  Conception de bases de données relationnelles, requêtes SQL avancées, 
-                  intégration d'interfaces dynamiques (HTML, CSS, JavaScript) et rédaction de la documentation technique.
-                </p>
-              </div>
-
             </li>
 
           </ul>
@@ -237,177 +230,115 @@
 
 
       <!--
-        - #PORTFOLIO
+        - #PROJECT DETAIL (Notion-like view)
       -->
 
-      <article class="portfolio" data-page="портфолио">
+      <article class="project-detail" data-page="project-detail">
 
-        <header>
-          <h2 class="h2 article-title">Портфолио</h2>
+        <header class="project-detail-header">
+          <button class="back-btn" data-back-btn>
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            <span data-i18n="back">Back</span>
+          </button>
+          <h2 class="h2 article-title" data-i18n="project_title">Defense Management Platform — UCA</h2>
         </header>
 
-        <section class="projects">
+        <div class="project-detail-content">
 
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>Все</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>SQL</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Выбрать категорию</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>Все</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>SQL</button>
-              </li>
-
-            </ul>
-
+          <!-- Hero Image -->
+          <div class="project-hero">
+            <img src="./assets/images/projet-sql-teacher.png" alt="Project Hero">
           </div>
 
-          <ul class="project-list">
+          <!-- Project Description -->
+          <section class="project-description">
+            <h3 class="h3" data-i18n="project_overview">Project Overview</h3>
+            <p data-i18n="project_desc_full">
+              A comprehensive web application for managing thesis defenses and internships at the University Clermont Auvergne. This project includes dashboard interfaces for teachers and administrators, data analysis tools, record management, and evaluation grids.
+            </p>
 
-            <!-- Plateforme de Gestion des Soutenances UCA -->
-            <li class="project-item active" data-filter-item data-category="web">
-              <a href="https://github.com/Corentino74/projet_sql" target="_blank">
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">SQL</span>
+              <span class="tag">PHP</span>
+            </div>
+          </section>
 
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+          <!-- Project Features -->
+          <section class="project-features">
+            <h3 class="h3" data-i18n="features">Features</h3>
+            <ul class="features-list">
+              <li data-i18n="feature_1">Teacher and administrator dashboard interfaces</li>
+              <li data-i18n="feature_2">Advanced data analysis and reporting</li>
+              <li data-i18n="feature_3">Evaluation grids management</li>
+              <li data-i18n="feature_4">Resource administration</li>
+              <li data-i18n="feature_5">Secure authentication system</li>
+              <li data-i18n="feature_6">Relational database design</li>
+            </ul>
+          </section>
 
-                  <img src="./assets/images/projet-sql-teacher.png" alt="Gestion des Soutenances UCA - Interface enseignant" loading="lazy">
+          <!-- Screenshots Gallery -->
+          <section class="project-gallery">
+            <h3 class="h3" data-i18n="screenshots">Screenshots</h3>
+
+            <div class="gallery-grid">
+
+              <div class="gallery-item">
+                <figure class="gallery-img">
+                  <img src="./assets/images/projet-sql-login.png" alt="Login Page" loading="lazy">
                 </figure>
+                <p class="gallery-caption" data-i18n="img_login">Authentication Page</p>
+              </div>
 
-                <h3 class="project-title">Gestion des Soutenances — UCA</h3>
-
-                <p class="project-category">Web</p>
-
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="web">
-              <a href="https://github.com/Corentino74/projet_sql" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/projet-sql-login.png" alt="Gestion des Soutenances UCA - Authentification" loading="lazy">
+              <div class="gallery-item">
+                <figure class="gallery-img">
+                  <img src="./assets/images/projet-sql-teacher.png" alt="Teacher View" loading="lazy">
                 </figure>
+                <p class="gallery-caption" data-i18n="img_teacher">Teacher Interface</p>
+              </div>
 
-                <h3 class="project-title">UCA Soutenances — Authentification</h3>
-
-                <p class="project-category">Web</p>
-
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="sql">
-              <a href="https://github.com/Corentino74/projet_sql" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/projet-sql-admin-grilles.png" alt="Gestion des Soutenances UCA - Tableau de bord administrateur" loading="lazy">
+              <div class="gallery-item">
+                <figure class="gallery-img">
+                  <img src="./assets/images/projet-sql-admin-grilles.png" alt="Admin Dashboard" loading="lazy">
                 </figure>
+                <p class="gallery-caption" data-i18n="img_admin_grids">Administrator Dashboard</p>
+              </div>
 
-                <h3 class="project-title">UCA Soutenances — Dashboard Admin</h3>
-
-                <p class="project-category">SQL</p>
-
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="sql">
-              <a href="https://github.com/Corentino74/projet_sql" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/projet-sql-admin-manage.png" alt="Gestion des Soutenances UCA - Gestion des grilles d'évaluation" loading="lazy">
+              <div class="gallery-item">
+                <figure class="gallery-img">
+                  <img src="./assets/images/projet-sql-admin-manage.png" alt="Grid Management" loading="lazy">
                 </figure>
+                <p class="gallery-caption" data-i18n="img_admin_manage">Evaluation Grids Management</p>
+              </div>
 
-                <h3 class="project-title">UCA Soutenances — Gestion Grilles</h3>
-
-                <p class="project-category">SQL</p>
-
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="web">
-              <a href="https://github.com/Corentino74/projet_sql" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/projet-sql-admin-resources.png" alt="Gestion des Soutenances UCA - Administration des ressources" loading="lazy">
+              <div class="gallery-item">
+                <figure class="gallery-img">
+                  <img src="./assets/images/projet-sql-admin-resources.png" alt="Resources" loading="lazy">
                 </figure>
+                <p class="gallery-caption" data-i18n="img_resources">Resources Administration</p>
+              </div>
 
-                <h3 class="project-title">UCA Soutenances — Ressources</h3>
-
-                <p class="project-category">Web</p>
-
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="sql">
-              <a href="https://github.com/Corentino74/projet_sql" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/projet-sql-analytics.png" alt="Gestion des Soutenances UCA - Analyse des données" loading="lazy">
+              <div class="gallery-item">
+                <figure class="gallery-img">
+                  <img src="./assets/images/projet-sql-analytics.png" alt="Analytics" loading="lazy">
                 </figure>
+                <p class="gallery-caption" data-i18n="img_analytics">Data Analysis</p>
+              </div>
 
-                <h3 class="project-title">UCA Soutenances — Analytics</h3>
+            </div>
+          </section>
 
-                <p class="project-category">SQL</p>
+          <!-- Project Links -->
+          <section class="project-links">
+            <a href="https://github.com/Corentino74/projet_sql" target="_blank" class="project-link-btn">
+              <ion-icon name="logo-github"></ion-icon>
+              <span data-i18n="view_github">View on GitHub</span>
+            </a>
+          </section>
 
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
+        </div>
 
       </article>
 
@@ -419,29 +350,29 @@
         - #CONTACT
       -->
 
-      <article class="contact" data-page="контакты">
+      <article class="contact" data-page="contact">
 
         <header>
-          <h2 class="h2 article-title">Контакты</h2>
+          <h2 class="h2 article-title" data-i18n="contact">Contact</h2>
         </header>
 
         <section class="contact-form">
 
-          <h3 class="h3 form-title">Форма связи</h3>
+          <h3 class="h3 form-title" data-i18n="contact_form">Contact Form</h3>
 
           <form action="#" class="form" data-form>
 
             <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Ваше имя" required data-form-input>
+              <input type="text" name="fullname" class="form-input" data-i18n-placeholder="your_name" placeholder="Your name" required data-form-input>
 
               <input type="email" name="email" class="form-input" placeholder="Email" required data-form-input>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Ваше сообщение" required data-form-input></textarea>
+            <textarea name="message" class="form-input" data-i18n-placeholder="your_message" placeholder="Your message" required data-form-input></textarea>
 
             <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
-              <span>Отправить</span>
+              <span data-i18n="send">Send</span>
             </button>
 
           </form>
@@ -455,7 +386,17 @@
   </main>
 
 
-
+  <!-- Image Modal -->
+  <div class="image-modal" data-image-modal>
+    <div class="modal-overlay" data-modal-overlay></div>
+    <div class="modal-content">
+      <button class="modal-close" data-modal-close>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <img src="" alt="" class="modal-image" data-modal-image>
+      <p class="modal-caption" data-modal-caption></p>
+    </div>
+  </div>
 
 
 
