@@ -341,14 +341,22 @@ function switchLanguage(lang) {
 // IMAGE MODAL FUNCTIONS
 // =============================================
 
-function openImageModal(imgSrc, caption) {
+let galleryImages = [];
+let currentImageIndex = 0;
+
+function openImageModal(imgSrc, caption, index) {
   const imageModal = document.querySelector('[data-image-modal]');
   const modalImage = document.querySelector('[data-modal-image]');
   const modalCaption = document.querySelector('[data-modal-caption]');
+  const modalCounter = document.querySelector('[data-modal-counter]');
   
   if (modalImage && modalCaption && imageModal) {
+    currentImageIndex = index || 0;
     modalImage.src = imgSrc;
     modalCaption.textContent = caption;
+    if (modalCounter && galleryImages.length > 1) {
+      modalCounter.textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
+    }
     imageModal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -359,6 +367,33 @@ function closeImageModal() {
   if (imageModal) {
     imageModal.classList.remove('active');
     document.body.style.overflow = '';
+  }
+}
+
+function navigateModal(direction) {
+  if (galleryImages.length === 0) return;
+  
+  currentImageIndex += direction;
+  
+  // Loop around
+  if (currentImageIndex < 0) {
+    currentImageIndex = galleryImages.length - 1;
+  } else if (currentImageIndex >= galleryImages.length) {
+    currentImageIndex = 0;
+  }
+  
+  const modalImage = document.querySelector('[data-modal-image]');
+  const modalCaption = document.querySelector('[data-modal-caption]');
+  const modalCounter = document.querySelector('[data-modal-counter]');
+  
+  if (modalImage && galleryImages[currentImageIndex]) {
+    modalImage.src = galleryImages[currentImageIndex].src;
+    if (modalCaption) {
+      modalCaption.textContent = galleryImages[currentImageIndex].caption;
+    }
+    if (modalCounter) {
+      modalCounter.textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
+    }
   }
 }
 
@@ -400,33 +435,72 @@ document.addEventListener('DOMContentLoaded', function() {
   // IMAGE MODAL (Gallery) - Click handlers
   // =============================================
   
-  const galleryItems = document.querySelectorAll('.gallery-item');
+  const galleryItemsList = document.querySelectorAll('.gallery-item');
   const modalOverlay = document.querySelector('[data-modal-overlay]');
   const modalCloseBtn = document.querySelector('[data-modal-close]');
+  const modalPrevBtn = document.querySelector('[data-modal-prev]');
+  const modalNextBtn = document.querySelector('[data-modal-next]');
   
-  galleryItems.forEach(item => {
+  // Build gallery images array
+  galleryImages = [];
+  galleryItemsList.forEach((item, index) => {
+    const img = item.querySelector('img');
+    const caption = item.querySelector('.gallery-caption');
+    if (img) {
+      galleryImages.push({
+        src: img.src,
+        caption: caption ? caption.textContent : ''
+      });
+    }
+  });
+  
+  // Add click handlers to gallery items
+  galleryItemsList.forEach((item, index) => {
     item.addEventListener('click', function() {
       const img = this.querySelector('img');
       const caption = this.querySelector('.gallery-caption');
       if (img) {
-        openImageModal(img.src, caption ? caption.textContent : '');
+        openImageModal(img.src, caption ? caption.textContent : '', index);
       }
     });
   });
   
+  // Modal overlay close
   if (modalOverlay) {
     modalOverlay.addEventListener('click', closeImageModal);
   }
   
+  // Close button
   if (modalCloseBtn) {
     modalCloseBtn.addEventListener('click', closeImageModal);
   }
   
-  // Close modal on Escape key
+  // Navigation buttons
+  if (modalPrevBtn) {
+    modalPrevBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navigateModal(-1);
+    });
+  }
+  
+  if (modalNextBtn) {
+    modalNextBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navigateModal(1);
+    });
+  }
+  
+  // Keyboard navigation
   document.addEventListener('keydown', function(e) {
     const imageModal = document.querySelector('[data-image-modal]');
-    if (e.key === 'Escape' && imageModal && imageModal.classList.contains('active')) {
-      closeImageModal();
+    if (imageModal && imageModal.classList.contains('active')) {
+      if (e.key === 'Escape') {
+        closeImageModal();
+      } else if (e.key === 'ArrowLeft') {
+        navigateModal(-1);
+      } else if (e.key === 'ArrowRight') {
+        navigateModal(1);
+      }
     }
   });
   
