@@ -23,17 +23,74 @@ const translations = {
     // Projects
     my_projects: "Mes Projets",
     project_title: "Plateforme de Gestion des Soutenances — UCA",
-    project_overview: "Aperçu du Projet",
-    project_desc_full: "Une application web complète pour la gestion des soutenances et des alternances à l'Université Clermont Auvergne. Ce projet comprend des interfaces de tableau de bord pour les enseignants et les administrateurs, des outils d'analyse de données, la gestion des enregistrements et des grilles d'évaluation.",
-    features: "Fonctionnalités",
-    feature_1: "Interfaces de tableau de bord pour enseignants et administrateurs",
-    feature_2: "Analyse de données avancée et rapports",
-    feature_3: "Gestion des grilles d'évaluation",
-    feature_4: "Administration des ressources",
-    feature_5: "Système d'authentification sécurisé",
-    feature_6: "Conception de base de données relationnelle",
+    project_subtitle: "Gestion et analyse des soutenances et alternances",
     screenshots: "Captures d'écran",
     view_github: "Voir sur GitHub",
+    
+    // Context
+    context_title: "Contexte et Sujet",
+    context_text: "Dans le cadre d'un projet universitaire à l'Université Clermont Auvergne, j'ai participé au développement d'une application web de gestion des soutenances et alternances. L'application a été conçue pour répondre aux besoins du corps enseignant qui avait besoin d'un outil centralisé pour gérer les évaluations des étudiants, les grilles d'évaluation et le suivi des stages.",
+    
+    // Objectives
+    objectives_title: "Objectifs du Projet",
+    obj_1: "Créer une interface intuitive pour les enseignants et administrateurs",
+    obj_2: "Centraliser la gestion des soutenances et alternances",
+    obj_3: "Automatiser la génération des grilles d'évaluation",
+    obj_4: "Fournir des outils analytiques pour suivre la progression des étudiants",
+    obj_5: "Sécuriser l'accès avec un système d'authentification basé sur les rôles",
+    
+    // Missions
+    missions_title: "Missions Principales",
+    mission_1: "Conception et modélisation de la base de données relationnelle",
+    mission_2: "Développement des interfaces enseignant et administrateur",
+    mission_3: "Mise en place du système d'authentification et d'autorisation",
+    mission_4: "Création des fonctionnalités de gestion des grilles d'évaluation",
+    mission_5: "Développement du module d'analyse de données et statistiques",
+    mission_6: "Rédaction de la documentation technique",
+    
+    // Project Steps
+    steps_title: "Étapes du Projet",
+    step1_title: "Analyse des Besoins",
+    step1_desc: "Réunion avec les parties prenantes, recueil des exigences, rédaction du cahier des charges",
+    step2_title: "Conception de la Base de Données",
+    step2_desc: "Modèle Conceptuel de Données (MCD), Modèle Logique de Données (MLD), création des scripts SQL",
+    step3_title: "Développement des Interfaces",
+    step3_desc: "Création des maquettes, développement front-end (HTML/CSS/JS), intégration back-end (PHP)",
+    step4_title: "Tests et Validation",
+    step4_desc: "Tests unitaires, tests d'intégration, recette utilisateur",
+    step5_title: "Déploiement et Documentation",
+    step5_desc: "Mise en production, rédaction de la documentation utilisateur et technique",
+    
+    // Skills
+    skills_title: "Compétences Mobilisées",
+    tech_skills: "Compétences Techniques",
+    transversal_skills: "Compétences Transversales",
+    human_qualities: "Qualités Humaines",
+    skill_project_management: "Gestion de Projet",
+    skill_teamwork: "Travail en Équipe",
+    skill_communication: "Communication",
+    skill_analysis: "Analyse des Besoins",
+    skill_documentation: "Documentation Technique",
+    quality_rigor: "Rigueur",
+    quality_autonomy: "Autonomie",
+    quality_adaptability: "Adaptabilité",
+    quality_curiosity: "Curiosité",
+    quality_listening: "Écoute Active",
+    
+    // Tools
+    tools_title: "Outils Utilisés",
+    
+    // Academic Competencies
+    academic_title: "Compétences Académiques Validées",
+    ac1: "Développer une interface utilisateur",
+    ac2: "Concevoir et gérer une base de données",
+    ac3: "Intégrer une solution dans un environnement de production",
+    ac4: "Gérer les données du système d'information",
+    ac5: "Collaborer au sein d'une équipe informatique",
+    
+    // Conclusion
+    conclusion_title: "Conclusion et Réflexion",
+    conclusion_text: "Ce projet m'a permis d'appliquer mes connaissances théoriques à un cas réel. J'ai appris à travailler en équipe, à gérer les délais et à m'adapter aux besoins des utilisateurs. Les principaux défis étaient la conception de la base de données et la gestion des différents rôles utilisateurs. Cette expérience a renforcé mon intérêt pour le développement web et la gestion de données. À l'avenir, j'aimerais explorer des solutions cloud pour ce type d'application.",
     
     // Screenshot captions
     img_login: "Page d'authentification",
@@ -69,17 +126,74 @@ const translations = {
     // Projects
     my_projects: "My Projects",
     project_title: "Defense Management Platform — UCA",
-    project_overview: "Project Overview",
-    project_desc_full: "A comprehensive web application for managing thesis defenses and internships at the University Clermont Auvergne. This project includes dashboard interfaces for teachers and administrators, data analysis tools, record management, and evaluation grids.",
-    features: "Features",
-    feature_1: "Teacher and administrator dashboard interfaces",
-    feature_2: "Advanced data analysis and reporting",
-    feature_3: "Evaluation grids management",
-    feature_4: "Resource administration",
-    feature_5: "Secure authentication system",
-    feature_6: "Relational database design",
+    project_subtitle: "Management and analysis of thesis defenses and internships",
     screenshots: "Screenshots",
     view_github: "View on GitHub",
+    
+    // Context
+    context_title: "Context and Subject",
+    context_text: "As part of a university project at Université Clermont Auvergne, I participated in the development of a web application for managing thesis defenses and internships. The application was designed to meet the needs of the teaching staff who needed a centralized tool to manage student evaluations, evaluation grids, and tracking of internships.",
+    
+    // Objectives
+    objectives_title: "Project Objectives",
+    obj_1: "Create an intuitive interface for teachers and administrators",
+    obj_2: "Centralize management of thesis defenses and internships",
+    obj_3: "Automate the generation of evaluation grids",
+    obj_4: "Provide analytical tools to track student progress",
+    obj_5: "Secure access with a role-based authentication system",
+    
+    // Missions
+    missions_title: "Main Missions",
+    mission_1: "Design and modeling of the relational database",
+    mission_2: "Development of teacher and administrator interfaces",
+    mission_3: "Implementation of the authentication and authorization system",
+    mission_4: "Creation of evaluation grids management features",
+    mission_5: "Development of the data analysis and statistics module",
+    mission_6: "Writing technical documentation",
+    
+    // Project Steps
+    steps_title: "Project Steps",
+    step1_title: "Needs Analysis",
+    step1_desc: "Meeting with stakeholders, gathering requirements, writing specifications",
+    step2_title: "Database Design",
+    step2_desc: "Conceptual Data Model (CDM), Logical Data Model (LDM), creation of SQL scripts",
+    step3_title: "Interface Development",
+    step3_desc: "Creation of mockups, front-end development (HTML/CSS/JS), back-end integration (PHP)",
+    step4_title: "Testing and Validation",
+    step4_desc: "Unit testing, integration testing, user acceptance testing",
+    step5_title: "Deployment and Documentation",
+    step5_desc: "Production deployment, writing user and technical documentation",
+    
+    // Skills
+    skills_title: "Skills Mobilized",
+    tech_skills: "Technical Skills",
+    transversal_skills: "Transversal Skills",
+    human_qualities: "Human Qualities",
+    skill_project_management: "Project Management",
+    skill_teamwork: "Teamwork",
+    skill_communication: "Communication",
+    skill_analysis: "Needs Analysis",
+    skill_documentation: "Technical Documentation",
+    quality_rigor: "Rigor",
+    quality_autonomy: "Autonomy",
+    quality_adaptability: "Adaptability",
+    quality_curiosity: "Curiosity",
+    quality_listening: "Active Listening",
+    
+    // Tools
+    tools_title: "Tools Used",
+    
+    // Academic Competencies
+    academic_title: "Validated Academic Competencies",
+    ac1: "Develop a user interface",
+    ac2: "Design and manage a database",
+    ac3: "Integrate a solution in a production environment",
+    ac4: "Manage data from the information system",
+    ac5: "Collaborate within an IT team",
+    
+    // Conclusion
+    conclusion_title: "Conclusion and Reflection",
+    conclusion_text: "This project allowed me to apply my theoretical knowledge to a real-world case. I learned how to work in a team, manage deadlines, and adapt to user needs. The main challenges were database design and managing different user roles. This experience reinforced my interest in web development and data management. In the future, I would like to explore cloud solutions for this type of application.",
     
     // Screenshot captions
     img_login: "Authentication Page",
