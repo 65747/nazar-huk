@@ -475,6 +475,7 @@ main {
   font-size: var(--fs-8);
   padding: 20px 7px;
   transition: color var(--transition-1);
+  cursor: pointer;
 }
 
 .navbar-link:hover,
@@ -1945,6 +1946,11 @@ textarea.form-input::-webkit-resizer { display: none; }
   cursor: pointer;
   transition: transform var(--transition-1), box-shadow var(--transition-1);
   z-index: 1;
+  user-select: none;
+}
+
+.project-card * {
+  pointer-events: none;
 }
 
 .project-card::before {

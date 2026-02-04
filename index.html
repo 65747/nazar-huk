@@ -65,9 +65,9 @@
 
         <!-- Language Switcher -->
         <div class="lang-switcher">
-          <button class="lang-btn active" data-lang="fr">FR</button>
+          <button class="lang-btn active" data-lang="fr" onclick="switchLanguage('fr')">FR</button>
           <span class="lang-separator">|</span>
-          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
         </div>
 
         <div class="separator"></div>
@@ -159,11 +159,11 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link data-i18n="about">About</button>
+            <button class="navbar-link active" data-nav-link data-i18n="about" onclick="navigateTo('about')">About</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link data-i18n="contact">Contact</button>
+            <button class="navbar-link" data-nav-link data-i18n="contact" onclick="navigateTo('contact')">Contact</button>
           </li>
 
         </ul>
@@ -205,7 +205,7 @@
 
           <ul class="projects-grid">
 
-            <li class="project-card" data-project="soutenances-uca">
+            <li class="project-card" data-project="soutenances-uca" onclick="openProject()">
               <figure class="project-card-img">
                 <div class="project-card-icon">
                   <ion-icon name="eye-outline"></ion-icon>
@@ -236,7 +236,7 @@
       <article class="project-detail" data-page="project-detail">
 
         <header class="project-detail-header">
-          <button class="back-btn" data-back-btn>
+          <button class="back-btn" data-back-btn onclick="goBack()">
             <ion-icon name="arrow-back-outline"></ion-icon>
             <span data-i18n="back">Back</span>
           </button>

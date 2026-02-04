@@ -1,5 +1,3 @@
-'use strict';
-
 // =============================================
 // TRANSLATIONS
 // =============================================
@@ -102,6 +100,86 @@ const translations = {
 let currentLang = 'fr';
 
 // =============================================
+// GLOBAL NAVIGATION FUNCTIONS (for onclick)
+// =============================================
+
+function navigateTo(pageName) {
+  const pages = document.querySelectorAll("[data-page]");
+  const navigationLinks = document.querySelectorAll("[data-nav-link]");
+  
+  // Hide all pages
+  pages.forEach(page => {
+    page.classList.remove("active");
+  });
+  
+  // Show the target page
+  pages.forEach(page => {
+    if (page.dataset.page === pageName) {
+      page.classList.add("active");
+    }
+  });
+  
+  // Update nav links
+  navigationLinks.forEach(link => {
+    link.classList.remove("active");
+    const linkKey = link.getAttribute('data-i18n');
+    if (linkKey === pageName) {
+      link.classList.add("active");
+    }
+  });
+  
+  window.scrollTo(0, 0);
+}
+
+function openProject() {
+  const aboutPage = document.querySelector('[data-page="about"]');
+  const projectDetailPage = document.querySelector('[data-page="project-detail"]');
+  const navigationLinks = document.querySelectorAll("[data-nav-link]");
+  
+  // Hide about page
+  if (aboutPage) {
+    aboutPage.classList.remove('active');
+  }
+  
+  // Show project detail page
+  if (projectDetailPage) {
+    projectDetailPage.classList.add('active');
+  }
+  
+  // Update navigation (remove active from all)
+  navigationLinks.forEach(link => {
+    link.classList.remove('active');
+  });
+  
+  window.scrollTo(0, 0);
+}
+
+function goBack() {
+  const aboutPage = document.querySelector('[data-page="about"]');
+  const projectDetailPage = document.querySelector('[data-page="project-detail"]');
+  const navigationLinks = document.querySelectorAll("[data-nav-link]");
+  
+  // Hide project detail page
+  if (projectDetailPage) {
+    projectDetailPage.classList.remove('active');
+  }
+  
+  // Show about page
+  if (aboutPage) {
+    aboutPage.classList.add('active');
+  }
+  
+  // Update navigation
+  navigationLinks.forEach(link => {
+    if (link.getAttribute('data-i18n') === 'about') {
+      link.classList.add('active');
+    }
+  });
+  
+  window.scrollTo(0, 0);
+}
+
+// =============================================
 // LANGUAGE SWITCHING
 // =============================================
 
@@ -112,7 +190,7 @@ function setLanguage(lang) {
   // Update all elements with data-i18n attribute
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (translations[lang][key]) {
+    if (translations[lang] && translations[lang][key]) {
       el.textContent = translations[lang][key];
     }
   });
@@ -120,7 +198,7 @@ function setLanguage(lang) {
   // Update placeholders
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
-    if (translations[lang][key]) {
+    if (translations[lang] && translations[lang][key]) {
       el.placeholder = translations[lang][key];
     }
   });
@@ -133,211 +211,124 @@ function setLanguage(lang) {
     }
   });
   
-  // Update navigation links data-page matching
-  updateNavLinks();
-  
   // Save preference
   localStorage.setItem('preferredLanguage', lang);
 }
 
-function updateNavLinks() {
-  const navLinks = document.querySelectorAll('[data-nav-link]');
-  navLinks.forEach(link => {
-    const key = link.getAttribute('data-i18n');
-    if (translations[currentLang][key]) {
-      link.textContent = translations[currentLang][key];
-    }
-  });
+function switchLanguage(lang) {
+  setLanguage(lang);
 }
 
-// Initialize language
-document.addEventListener('DOMContentLoaded', () => {
-  const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
-  setLanguage(savedLang);
-});
-
-// Language button click handlers
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = btn.getAttribute('data-lang');
-    setLanguage(lang);
-  });
-});
-
-
-
 // =============================================
-// SIDEBAR TOGGLE
+// IMAGE MODAL FUNCTIONS
 // =============================================
-
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
-const elementToggleFunc = function (elem) { 
-  elem.classList.toggle("active"); 
-};
-
-sidebarBtn.addEventListener("click", function () { 
-  elementToggleFunc(sidebar); 
-});
-
-
-
-// =============================================
-// PAGE NAVIGATION
-// =============================================
-
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-
-function navigateToPage(pageName) {
-  pages.forEach(page => {
-    if (page.dataset.page === pageName) {
-      page.classList.add("active");
-    } else {
-      page.classList.remove("active");
-    }
-  });
-  
-  navigationLinks.forEach(link => {
-    const linkKey = link.getAttribute('data-i18n');
-    if (linkKey === pageName) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
-  });
-  
-  window.scrollTo(0, 0);
-}
-
-navigationLinks.forEach(link => {
-  link.addEventListener("click", function () {
-    const pageName = this.getAttribute('data-i18n');
-    navigateToPage(pageName);
-  });
-});
-
-
-
-// =============================================
-// PROJECT CARD CLICK - OPEN DETAIL VIEW
-// =============================================
-
-const projectCards = document.querySelectorAll('.project-card');
-const aboutPage = document.querySelector('[data-page="about"]');
-const projectDetailPage = document.querySelector('[data-page="project-detail"]');
-
-projectCards.forEach(card => {
-  card.addEventListener('click', () => {
-    // Hide about page
-    aboutPage.classList.remove('active');
-    
-    // Show project detail page
-    projectDetailPage.classList.add('active');
-    
-    // Update navigation (remove active from About)
-    navigationLinks.forEach(link => {
-      link.classList.remove('active');
-    });
-    
-    window.scrollTo(0, 0);
-  });
-});
-
-
-
-// =============================================
-// BACK BUTTON - RETURN TO ABOUT
-// =============================================
-
-const backBtn = document.querySelector('[data-back-btn]');
-
-if (backBtn) {
-  backBtn.addEventListener('click', () => {
-    // Hide project detail page
-    projectDetailPage.classList.remove('active');
-    
-    // Show about page
-    aboutPage.classList.add('active');
-    
-    // Update navigation
-    navigationLinks.forEach(link => {
-      if (link.getAttribute('data-i18n') === 'about') {
-        link.classList.add('active');
-      }
-    });
-    
-    window.scrollTo(0, 0);
-  });
-}
-
-
-
-// =============================================
-// IMAGE MODAL (Gallery)
-// =============================================
-
-const imageModal = document.querySelector('[data-image-modal]');
-const modalOverlay = document.querySelector('[data-modal-overlay]');
-const modalCloseBtn = document.querySelector('[data-modal-close]');
-const modalImage = document.querySelector('[data-modal-image]');
-const modalCaption = document.querySelector('[data-modal-caption]');
-const galleryItems = document.querySelectorAll('.gallery-item');
 
 function openImageModal(imgSrc, caption) {
-  modalImage.src = imgSrc;
-  modalCaption.textContent = caption;
-  imageModal.classList.add('active');
-  document.body.style.overflow = 'hidden';
+  const imageModal = document.querySelector('[data-image-modal]');
+  const modalImage = document.querySelector('[data-modal-image]');
+  const modalCaption = document.querySelector('[data-modal-caption]');
+  
+  if (modalImage && modalCaption && imageModal) {
+    modalImage.src = imgSrc;
+    modalCaption.textContent = caption;
+    imageModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 }
 
 function closeImageModal() {
-  imageModal.classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-galleryItems.forEach(item => {
-  item.addEventListener('click', () => {
-    const img = item.querySelector('img');
-    const caption = item.querySelector('.gallery-caption');
-    openImageModal(img.src, caption ? caption.textContent : '');
-  });
-});
-
-if (modalOverlay) {
-  modalOverlay.addEventListener('click', closeImageModal);
-}
-
-if (modalCloseBtn) {
-  modalCloseBtn.addEventListener('click', closeImageModal);
-}
-
-// Close modal on Escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && imageModal.classList.contains('active')) {
-    closeImageModal();
+  const imageModal = document.querySelector('[data-image-modal]');
+  if (imageModal) {
+    imageModal.classList.remove('active');
+    document.body.style.overflow = '';
   }
-});
-
-
+}
 
 // =============================================
-// CONTACT FORM VALIDATION
+// INITIALIZE ON DOM READY
 // =============================================
 
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-
-if (form && formInputs.length && formBtn) {
-  formInputs.forEach(input => {
-    input.addEventListener("input", function () {
-      if (form.checkValidity()) {
-        formBtn.removeAttribute("disabled");
-      } else {
-        formBtn.setAttribute("disabled", "");
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // =============================================
+  // LANGUAGE INITIALIZATION
+  // =============================================
+  
+  const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
+  setLanguage(savedLang);
+  
+  // Language button click handlers
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const lang = this.getAttribute('data-lang');
+      setLanguage(lang);
+    });
+  });
+  
+  // =============================================
+  // SIDEBAR TOGGLE
+  // =============================================
+  
+  const sidebar = document.querySelector("[data-sidebar]");
+  const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+  
+  if (sidebarBtn && sidebar) {
+    sidebarBtn.addEventListener("click", function() { 
+      sidebar.classList.toggle("active"); 
+    });
+  }
+  
+  // =============================================
+  // IMAGE MODAL (Gallery) - Click handlers
+  // =============================================
+  
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const modalOverlay = document.querySelector('[data-modal-overlay]');
+  const modalCloseBtn = document.querySelector('[data-modal-close]');
+  
+  galleryItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const img = this.querySelector('img');
+      const caption = this.querySelector('.gallery-caption');
+      if (img) {
+        openImageModal(img.src, caption ? caption.textContent : '');
       }
     });
   });
-}
+  
+  if (modalOverlay) {
+    modalOverlay.addEventListener('click', closeImageModal);
+  }
+  
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', closeImageModal);
+  }
+  
+  // Close modal on Escape key
+  document.addEventListener('keydown', function(e) {
+    const imageModal = document.querySelector('[data-image-modal]');
+    if (e.key === 'Escape' && imageModal && imageModal.classList.contains('active')) {
+      closeImageModal();
+    }
+  });
+  
+  // =============================================
+  // CONTACT FORM VALIDATION
+  // =============================================
+  
+  const form = document.querySelector("[data-form]");
+  const formInputs = document.querySelectorAll("[data-form-input]");
+  const formBtn = document.querySelector("[data-form-btn]");
+  
+  if (form && formInputs.length && formBtn) {
+    formInputs.forEach(input => {
+      input.addEventListener("input", function() {
+        if (form.checkValidity()) {
+          formBtn.removeAttribute("disabled");
+        } else {
+          formBtn.setAttribute("disabled", "");
+        }
+      });
+    });
+  }
+});
