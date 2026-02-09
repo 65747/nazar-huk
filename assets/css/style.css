@@ -845,8 +845,9 @@ main {
 }
 
 .skill .title-wrapper data,
-.skill .skill-value {
-  color: var(--light-gray);
+.skill .skill-value,
+.skills-section .skill-name {
+  color: hsl(0, 0%, 100%);
   font-size: var(--fs-7);
   font-weight: var(--fw-300);
 }
@@ -2096,6 +2097,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .project-card-main[data-theme-color="#E8B923"]:hover .project-card-main-overlay::before {
   background: rgba(232, 185, 35, 0.85);
+}
+
+.project-card-main[data-theme-color="#3dcc1f"]:hover .project-card-main-overlay::before {
+  background: rgba(0, 108, 130, 0.85);
 }
 
 .projects-section {
