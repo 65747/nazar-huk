@@ -29,9 +29,30 @@ const translations = {
     project_subtitle: "Gestion et analyse des soutenances et alternances",
     project_planner_title: "Android Planner",
     project_planner_desc: "Application de planification et gestion des tâches pour Android.",
-    project_brawl_title: "Brawl Stars — Outil",
-    project_brawl_desc: "Projet personnel lié à Brawl Stars.",
+    project_brawl_title: "Contrôleur automatique (vision par ordinateur)",
+    project_brawl_desc: "Assistant IA avec détection d'objets en temps réel (YOLOv8) et automatisation des commandes.",
     project_category_personal: "Projet personnel",
+    brawl_title: "Contrôleur automatique basé sur la vision par ordinateur",
+    brawl_subtitle: "Assistant IA avec détection d'objets en temps réel (YOLOv8)",
+    brawl_summary_title: "Résumé",
+    brawl_summary: "Application desktop Python avec interface graphique (Tkinter). L'assistant IA capture une zone d'écran en temps réel, détecte les objets via le modèle YOLOv8 (Ultralytics), et envoie des commandes de contrôle (touches WASD) selon la position des objets détectés. Projet démontrant la vision par ordinateur, l'automatisation et une architecture modulaire.",
+    brawl_desc_title: "Description",
+    brawl_desc_1: "Ce projet est un contrôleur automatique (vision-based control assistant) fondé sur l'intelligence artificielle et la vision par ordinateur. Le système capture une région configurable de l'écran, effectue la détection d'objets en temps réel avec YOLOv8, et génère des commandes de déplacement (WASD) en fonction de la position des objets dans le cadre — réalisant ainsi un pilotage automatique basé sur l'image.",
+    brawl_desc_2: "Domaines d'application possibles : assistant de test, automatisation de tests d'interface, prototype d'aide à la conduite basée sur la vision, projet pédagogique en vision par ordinateur et automatisation.",
+    brawl_tech_title: "Technologies",
+    brawl_arch_title: "Architecture et modules",
+    brawl_mod1: "ScreenCapture — capture d'une zone d'écran configurable (coordonnées, dimensions), sortie prête pour le modèle.",
+    brawl_mod2: "BulletDetector — chargement du modèle YOLOv8, inférence sur le flux, entraînement possible sur dataset personnalisé.",
+    brawl_mod3: "Movement — envoi des commandes haut/bas/gauche/droite via clavier (WASD), arrêt propre.",
+    brawl_mod4: "GUI — fenêtre principale (Start/Stop), réglage des touches, prévisualisation en direct avec boîtes de détection, réglage de la zone de capture.",
+    brawl_mod5: "main.py — point d'entrée : initialisation détecteur, capture, mouvement et boucle principale.",
+    brawl_logic: "Logique de contrôle : un centre de référence est défini dans l'image ; la position de chaque objet détecté est comparée à ce centre et génère les commandes de mouvement correspondantes (gauche/droite/haut/bas), réalisant un contrôle automatique basé sur la position des objets dans le cadre.",
+    brawl_skills_title: "Compétences démontrées",
+    brawl_skill1: "Détection d'objets en temps réel avec YOLOv8",
+    brawl_skill2: "Vision par ordinateur (OpenCV, flux vidéo)",
+    brawl_skill3: "Architecture modulaire (capture, détection, contrôle, GUI)",
+    brawl_skill4: "Interface graphique Tkinter et boucle asynchrone",
+    brawl_skill5: "Capture d'écran performante (mss) et automatisation clavier (PyAutoGUI)",
     project_coming_soon: "Page détaillée à venir.",
     // My Skills
     my_skills: "Mes compétences",
@@ -154,9 +175,30 @@ const translations = {
     project_subtitle: "Management and analysis of thesis defenses and internships",
     project_planner_title: "Android Planner",
     project_planner_desc: "Task planning and management app for Android.",
-    project_brawl_title: "Brawl Stars — Tool",
-    project_brawl_desc: "Personal project related to Brawl Stars.",
+    project_brawl_title: "Automatic controller (computer vision)",
+    project_brawl_desc: "AI assistant with real-time object detection (YOLOv8) and command automation.",
     project_category_personal: "Personal project",
+    brawl_title: "Vision-based automatic controller",
+    brawl_subtitle: "AI assistant with real-time object detection (YOLOv8)",
+    brawl_summary_title: "Summary",
+    brawl_summary: "Python desktop application with graphical interface (Tkinter). The AI assistant captures a screen region in real time, detects objects via the YOLOv8 model (Ultralytics), and sends control commands (WASD keys) based on the position of detected objects. The project demonstrates computer vision, automation, and a modular architecture.",
+    brawl_desc_title: "Description",
+    brawl_desc_1: "This project is an automatic controller (vision-based control assistant) based on artificial intelligence and computer vision. The system captures a configurable screen region, performs real-time object detection with YOLOv8, and generates movement commands (WASD) based on the position of objects in the frame — achieving image-based automatic control.",
+    brawl_desc_2: "Possible applications: testing assistant, UI test automation, vision-based control aid prototype, educational project in computer vision and automation.",
+    brawl_tech_title: "Technologies",
+    brawl_arch_title: "Architecture and modules",
+    brawl_mod1: "ScreenCapture — capture of a configurable screen region (coordinates, size), output ready for the model.",
+    brawl_mod2: "BulletDetector — YOLOv8 model loading, inference on the stream, optional training on custom dataset.",
+    brawl_mod3: "Movement — sending up/down/left/right commands via keyboard (WASD), clean stop.",
+    brawl_mod4: "GUI — main window (Start/Stop), key binding, live preview with detection boxes, capture area adjustment dialog.",
+    brawl_mod5: "main.py — entry point: detector, capture, movement initialization and main loop.",
+    brawl_logic: "Control logic: a reference center is defined in the image; each detected object's position is compared to this center and generates the corresponding movement commands (left/right/up/down), implementing automatic control based on object position in the frame.",
+    brawl_skills_title: "Skills demonstrated",
+    brawl_skill1: "Real-time object detection with YOLOv8",
+    brawl_skill2: "Computer vision (OpenCV, video stream)",
+    brawl_skill3: "Modular architecture (capture, detection, control, GUI)",
+    brawl_skill4: "Tkinter GUI and asynchronous loop",
+    brawl_skill5: "Efficient screen capture (mss) and keyboard automation (PyAutoGUI)",
     project_coming_soon: "Detailed page coming soon.",
     // My Skills
     my_skills: "My Skills",
@@ -289,13 +331,16 @@ function navigateTo(pageName) {
   window.scrollTo(0, 0);
 }
 
-// Project IDs: 'soutenances-uca' (full detail), 'planner', 'brawl' (simple placeholder)
-// Add more later: 'pokedex', 'mods', 'hospital', etc.
-const PROJECTS_WITH_FULL_DETAIL = ['soutenances-uca'];
+// Project IDs: 'soutenances-uca', 'brawl' (full detail), 'planner' (simple placeholder)
+const PROJECT_DETAIL_PAGES = {
+  'soutenances-uca': 'project-detail',
+  'brawl': 'project-detail-brawl'
+};
 
 function openProject(projectId) {
   const aboutPage = document.querySelector('[data-page="about"]');
   const projectDetailPage = document.querySelector('[data-page="project-detail"]');
+  const projectDetailBrawl = document.querySelector('[data-page="project-detail-brawl"]');
   const projectDetailSimple = document.querySelector('[data-page="project-detail-simple"]');
   const navigationLinks = document.querySelectorAll("[data-nav-link]");
   
@@ -303,20 +348,21 @@ function openProject(projectId) {
   
   aboutPage.classList.remove('active');
   if (projectDetailPage) projectDetailPage.classList.remove('active');
+  if (projectDetailBrawl) projectDetailBrawl.classList.remove('active');
   if (projectDetailSimple) projectDetailSimple.classList.remove('active');
   
-  if (PROJECTS_WITH_FULL_DETAIL.indexOf(projectId) !== -1) {
-    if (projectDetailPage) projectDetailPage.classList.add('active');
-  } else {
-    // Show simple placeholder for planner, brawl, etc.
-    if (projectDetailSimple) {
-      const titleEl = projectDetailSimple.querySelector('[data-simple-title]');
-      const descEl = projectDetailSimple.querySelector('[data-simple-desc]');
-      const content = getProjectSimpleContent(projectId);
-      if (titleEl) titleEl.textContent = content.title;
-      if (descEl) descEl.textContent = content.desc;
-      projectDetailSimple.classList.add('active');
-    }
+  const detailPage = PROJECT_DETAIL_PAGES[projectId];
+  if (detailPage === 'project-detail' && projectDetailPage) {
+    projectDetailPage.classList.add('active');
+  } else if (detailPage === 'project-detail-brawl' && projectDetailBrawl) {
+    projectDetailBrawl.classList.add('active');
+  } else if (projectDetailSimple) {
+    const titleEl = projectDetailSimple.querySelector('[data-simple-title]');
+    const descEl = projectDetailSimple.querySelector('[data-simple-desc]');
+    const content = getProjectSimpleContent(projectId);
+    if (titleEl) titleEl.textContent = content.title;
+    if (descEl) descEl.textContent = content.desc;
+    projectDetailSimple.classList.add('active');
   }
   
   navigationLinks.forEach(link => link.classList.remove('active'));
@@ -347,10 +393,12 @@ function getProjectSimpleContent(projectId) {
 function goBack() {
   const aboutPage = document.querySelector('[data-page="about"]');
   const projectDetailPage = document.querySelector('[data-page="project-detail"]');
+  const projectDetailBrawl = document.querySelector('[data-page="project-detail-brawl"]');
   const projectDetailSimple = document.querySelector('[data-page="project-detail-simple"]');
   const navigationLinks = document.querySelectorAll("[data-nav-link]");
   
   if (projectDetailPage) projectDetailPage.classList.remove('active');
+  if (projectDetailBrawl) projectDetailBrawl.classList.remove('active');
   if (projectDetailSimple) projectDetailSimple.classList.remove('active');
   if (aboutPage) aboutPage.classList.add('active');
   

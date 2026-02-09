@@ -608,7 +608,71 @@
 
       </article>
 
-      <!-- Project detail (simple placeholder for planner, brawl, etc.) -->
+      <!-- Project detail: AI Assistant (Brawl) -->
+      <article class="project-detail" data-page="project-detail-brawl">
+        <header class="project-detail-header">
+          <button class="back-btn" data-back-btn onclick="goBack()">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            <span data-i18n="back">Back</span>
+          </button>
+          <h2 class="h2 article-title" data-i18n="brawl_title">Contrôleur automatique basé sur la vision par ordinateur</h2>
+          <p class="project-subtitle" data-i18n="brawl_subtitle">Assistant IA avec détection d'objets en temps réel (YOLOv8)</p>
+        </header>
+        <div class="project-detail-content">
+          <section class="project-section">
+            <h3 class="h3" data-i18n="brawl_summary_title">Résumé</h3>
+            <p data-i18n="brawl_summary">
+              Application desktop Python avec interface graphique (Tkinter). L'assistant IA capture une zone d'écran en temps réel, détecte les objets via le modèle YOLOv8 (Ultralytics), et envoie des commandes de contrôle (touches WASD) selon la position des objets détectés. Projet démontrant la vision par ordinateur, l'automatisation et une architecture modulaire.
+            </p>
+          </section>
+          <section class="project-section">
+            <h3 class="h3" data-i18n="brawl_desc_title">Description</h3>
+            <p data-i18n="brawl_desc_1">
+              Ce projet est un contrôleur automatique (vision-based control assistant) fondé sur l'intelligence artificielle et la vision par ordinateur. Le système capture une région configurable de l'écran, effectue la détection d'objets en temps réel avec YOLOv8, et génère des commandes de déplacement (WASD) en fonction de la position des objets dans le cadre — réalisant ainsi un pilotage automatique basé sur l'image.
+            </p>
+            <p data-i18n="brawl_desc_2">
+              Domaines d'application possibles : assistant de test, automatisation de tests d'interface, prototype d'aide à la conduite basée sur la vision, projet pédagogique en vision par ordinateur et automatisation.
+            </p>
+          </section>
+          <section class="project-section">
+            <h3 class="h3" data-i18n="brawl_tech_title">Technologies</h3>
+            <div class="project-tags">
+              <span class="tag">Python 3</span>
+              <span class="tag">YOLOv8 (Ultralytics)</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">mss</span>
+              <span class="tag">PyAutoGUI</span>
+              <span class="tag">Tkinter</span>
+            </div>
+          </section>
+          <section class="project-section">
+            <h3 class="h3" data-i18n="brawl_arch_title">Architecture et modules</h3>
+            <ul class="features-list">
+              <li data-i18n="brawl_mod1"></li>
+              <li data-i18n="brawl_mod2"></li>
+              <li data-i18n="brawl_mod3"></li>
+              <li data-i18n="brawl_mod4"></li>
+              <li data-i18n="brawl_mod5"></li>
+            </ul>
+            <p class="project-section-note" data-i18n="brawl_logic">
+              Logique de contrôle : un centre de référence est défini dans l'image ; la position de chaque objet détecté est comparée à ce centre et génère les commandes de mouvement correspondantes (gauche/droite/haut/bas), réalisant un contrôle automatique basé sur la position des objets dans le cadre.
+            </p>
+          </section>
+          <section class="project-section">
+            <h3 class="h3" data-i18n="brawl_skills_title">Compétences démontrées</h3>
+            <ul class="features-list">
+              <li data-i18n="brawl_skill1">Détection d'objets en temps réel avec YOLOv8</li>
+              <li data-i18n="brawl_skill2">Vision par ordinateur (OpenCV, flux vidéo)</li>
+              <li data-i18n="brawl_skill3">Architecture modulaire (capture, détection, contrôle, GUI)</li>
+              <li data-i18n="brawl_skill4">Interface graphique Tkinter et boucle asynchrone</li>
+              <li data-i18n="brawl_skill5">Capture d'écran performante (mss) et automatisation clavier (PyAutoGUI)</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <!-- Project detail (simple placeholder for planner, etc.) -->
       <article class="project-detail project-detail-simple" data-page="project-detail-simple">
         <header class="project-detail-header">
           <button class="back-btn" data-back-btn onclick="goBack()">
