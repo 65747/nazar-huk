@@ -325,7 +325,7 @@
                 <img src="./assets/images/icon-dev.svg" alt="Brawl Stars" loading="lazy">
               </figure>
               <div class="project-card-content">
-                <h4 class="project-card-title" data-i18n="project_brawl_title">Brawl Stars — Outil</h4>
+                <h4 class="project-card-title" data-i18n="project_brawl_title">Contrôleur automatique pour Brawl Stars</h4>
                 <p class="project-card-category" data-i18n="project_category_personal">Projet personnel</p>
               </div>
             </li>
@@ -608,44 +608,113 @@
 
       </article>
 
-      <!-- Project detail: AI Assistant (Brawl) -->
+      <!-- Project detail: Brawl Stars — AI Controller -->
       <article class="project-detail" data-page="project-detail-brawl">
         <header class="project-detail-header">
           <button class="back-btn" data-back-btn onclick="goBack()">
             <ion-icon name="arrow-back-outline"></ion-icon>
             <span data-i18n="back">Back</span>
           </button>
-          <h2 class="h2 article-title" data-i18n="brawl_title">Contrôleur automatique basé sur la vision par ordinateur</h2>
-          <p class="project-subtitle" data-i18n="brawl_subtitle">Assistant IA avec détection d'objets en temps réel (YOLOv8)</p>
+          <h2 class="h2 article-title" data-i18n="brawl_title">Contrôleur automatique pour Brawl Stars</h2>
+          <p class="project-subtitle" data-i18n="brawl_subtitle">Assistant IA et vision par ordinateur (YOLOv8)</p>
         </header>
         <div class="project-detail-content">
+          <!-- Hero -->
+          <div class="project-hero">
+            <img src="./assets/images/brawl-capture.png" alt="Brawl Stars - Capture d'écran de l'application">
+          </div>
+          <!-- Contexte et sujet -->
           <section class="project-section">
-            <h3 class="h3" data-i18n="brawl_summary_title">Résumé</h3>
-            <p data-i18n="brawl_summary">
-              Application desktop Python avec interface graphique (Tkinter). L'assistant IA capture une zone d'écran en temps réel, détecte les objets via le modèle YOLOv8 (Ultralytics), et envoie des commandes de contrôle (touches WASD) selon la position des objets détectés. Projet démontrant la vision par ordinateur, l'automatisation et une architecture modulaire.
+            <h3 class="h3" data-i18n="context_title">Contexte et sujet</h3>
+            <p data-i18n="brawl_context">
+              Projet personnel d'assistant IA et de contrôleur automatique basé sur la vision par ordinateur, appliqué au jeu Brawl Stars. L'application desktop Python capture une zone d'écran en temps réel, détecte les objets avec YOLOv8 et envoie des commandes (WASD) selon la position des objets — démonstration de vision par ordinateur et d'automatisation dans un cadre ludique.
             </p>
           </section>
+          <!-- Objectifs -->
           <section class="project-section">
-            <h3 class="h3" data-i18n="brawl_desc_title">Description</h3>
-            <p data-i18n="brawl_desc_1">
-              Ce projet est un contrôleur automatique (vision-based control assistant) fondé sur l'intelligence artificielle et la vision par ordinateur. Le système capture une région configurable de l'écran, effectue la détection d'objets en temps réel avec YOLOv8, et génère des commandes de déplacement (WASD) en fonction de la position des objets dans le cadre — réalisant ainsi un pilotage automatique basé sur l'image.
-            </p>
-            <p data-i18n="brawl_desc_2">
-              Domaines d'application possibles : assistant de test, automatisation de tests d'interface, prototype d'aide à la conduite basée sur la vision, projet pédagogique en vision par ordinateur et automatisation.
-            </p>
+            <h3 class="h3" data-i18n="objectives_title">Objectifs du projet</h3>
+            <ul class="features-list">
+              <li data-i18n="brawl_obj1"></li>
+              <li data-i18n="brawl_obj2"></li>
+              <li data-i18n="brawl_obj3"></li>
+              <li data-i18n="brawl_obj4"></li>
+            </ul>
           </section>
+          <!-- Missions -->
           <section class="project-section">
-            <h3 class="h3" data-i18n="brawl_tech_title">Technologies</h3>
+            <h3 class="h3" data-i18n="missions_title">Missions principales</h3>
+            <ul class="features-list">
+              <li data-i18n="brawl_mission1"></li>
+              <li data-i18n="brawl_mission2"></li>
+              <li data-i18n="brawl_mission3"></li>
+              <li data-i18n="brawl_mission4"></li>
+              <li data-i18n="brawl_mission5"></li>
+            </ul>
+          </section>
+          <!-- Étapes du projet -->
+          <section class="project-section">
+            <h3 class="h3" data-i18n="steps_title">Étapes du projet</h3>
+            <div class="timeline-project">
+              <div class="timeline-item-project">
+                <span class="timeline-step">1</span>
+                <div class="timeline-content">
+                  <h4 data-i18n="brawl_step1_title"></h4>
+                  <p data-i18n="brawl_step1_desc"></p>
+                </div>
+              </div>
+              <div class="timeline-item-project">
+                <span class="timeline-step">2</span>
+                <div class="timeline-content">
+                  <h4 data-i18n="brawl_step2_title"></h4>
+                  <p data-i18n="brawl_step2_desc"></p>
+                </div>
+              </div>
+              <div class="timeline-item-project">
+                <span class="timeline-step">3</span>
+                <div class="timeline-content">
+                  <h4 data-i18n="brawl_step3_title"></h4>
+                  <p data-i18n="brawl_step3_desc"></p>
+                </div>
+              </div>
+              <div class="timeline-item-project">
+                <span class="timeline-step">4</span>
+                <div class="timeline-content">
+                  <h4 data-i18n="brawl_step4_title"></h4>
+                  <p data-i18n="brawl_step4_desc"></p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Compétences mobilisées -->
+          <section class="project-section">
+            <h3 class="h3" data-i18n="skills_title">Compétences mobilisées</h3>
             <div class="project-tags">
-              <span class="tag">Python 3</span>
-              <span class="tag">YOLOv8 (Ultralytics)</span>
+              <span class="tag">Python</span>
+              <span class="tag">YOLOv8</span>
               <span class="tag">OpenCV</span>
-              <span class="tag">NumPy</span>
+              <span class="tag">Tkinter</span>
               <span class="tag">mss</span>
               <span class="tag">PyAutoGUI</span>
+            </div>
+            <ul class="features-list" style="margin-top: 16px;">
+              <li data-i18n="brawl_skill1"></li>
+              <li data-i18n="brawl_skill2"></li>
+              <li data-i18n="brawl_skill3"></li>
+              <li data-i18n="brawl_skill4"></li>
+              <li data-i18n="brawl_skill5"></li>
+            </ul>
+          </section>
+          <!-- Outils -->
+          <section class="project-section">
+            <h3 class="h3" data-i18n="tools_title">Outils utilisés</h3>
+            <div class="project-tags">
+              <span class="tag">VS Code</span>
+              <span class="tag">Git</span>
+              <span class="tag">Ultralytics</span>
               <span class="tag">Tkinter</span>
             </div>
           </section>
+          <!-- Architecture / modules -->
           <section class="project-section">
             <h3 class="h3" data-i18n="brawl_arch_title">Architecture et modules</h3>
             <ul class="features-list">
@@ -655,19 +724,36 @@
               <li data-i18n="brawl_mod4"></li>
               <li data-i18n="brawl_mod5"></li>
             </ul>
-            <p class="project-section-note" data-i18n="brawl_logic">
-              Logique de contrôle : un centre de référence est défini dans l'image ; la position de chaque objet détecté est comparée à ce centre et génère les commandes de mouvement correspondantes (gauche/droite/haut/bas), réalisant un contrôle automatique basé sur la position des objets dans le cadre.
-            </p>
+            <p class="project-section-note" data-i18n="brawl_logic"></p>
           </section>
-          <section class="project-section">
-            <h3 class="h3" data-i18n="brawl_skills_title">Compétences démontrées</h3>
-            <ul class="features-list">
-              <li data-i18n="brawl_skill1">Détection d'objets en temps réel avec YOLOv8</li>
-              <li data-i18n="brawl_skill2">Vision par ordinateur (OpenCV, flux vidéo)</li>
-              <li data-i18n="brawl_skill3">Architecture modulaire (capture, détection, contrôle, GUI)</li>
-              <li data-i18n="brawl_skill4">Interface graphique Tkinter et boucle asynchrone</li>
-              <li data-i18n="brawl_skill5">Capture d'écran performante (mss) et automatisation clavier (PyAutoGUI)</li>
-            </ul>
+          <!-- Captures d'écran -->
+          <section class="project-gallery">
+            <h3 class="h3" data-i18n="screenshots">Captures d'écran</h3>
+            <div class="gallery-grid">
+              <div class="gallery-item">
+                <figure class="gallery-img">
+                  <img src="./assets/images/brawl-capture.png" alt="Application - capture d'écran" loading="lazy">
+                </figure>
+                <p class="gallery-caption" data-i18n="brawl_img_capture"></p>
+              </div>
+              <div class="gallery-item">
+                <figure class="gallery-img">
+                  <img src="./assets/images/brawl-console.png" alt="Console avec mises à jour" loading="lazy">
+                </figure>
+                <p class="gallery-caption" data-i18n="brawl_img_console"></p>
+              </div>
+              <div class="gallery-item">
+                <figure class="gallery-img">
+                  <img src="./assets/images/brawl-structure.png" alt="Structure des fichiers" loading="lazy">
+                </figure>
+                <p class="gallery-caption" data-i18n="brawl_img_structure"></p>
+              </div>
+            </div>
+          </section>
+          <!-- Conclusion -->
+          <section class="project-section project-conclusion">
+            <h3 class="h3" data-i18n="conclusion_title">Conclusion et réflexion</h3>
+            <p data-i18n="brawl_conclusion"></p>
           </section>
         </div>
       </article>
