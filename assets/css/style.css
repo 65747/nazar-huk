@@ -60,8 +60,8 @@
   --white-2: hsl(0, 0%, 98%);
   --orange-yellow-crayola: hsl(45, 100%, 72%);
   --vegas-gold: hsl(45, 54%, 58%);
-  --light-gray: hsl(0, 0%, 84%);
-  --light-gray-70: hsla(0, 0%, 84%, 0.7);
+  --light-gray: hsl(0, 0%, 100%);
+  --light-gray-70: hsla(0, 0%, 100%, 0.9);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
 
   /**
@@ -2023,6 +2023,13 @@ textarea.form-input::-webkit-resizer { display: none; }
   transition: var(--transition-1);
 }
 
+.project-card-main-img--cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+}
+
 .project-card-main:hover .project-card-main-img img {
   opacity: 1;
 }
@@ -2085,6 +2092,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .project-card-main[data-theme-color="#FF6B35"]:hover .project-card-main-overlay::before {
   background: rgba(255, 107, 53, 0.85);
+}
+
+.project-card-main[data-theme-color="#E8B923"]:hover .project-card-main-overlay::before {
+  background: rgba(232, 185, 35, 0.85);
 }
 
 .projects-section {
