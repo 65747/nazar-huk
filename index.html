@@ -181,17 +181,99 @@
         </section>
 
 
-        <!--
-          - Projects Section
-        -->
+        <!-- My Skills -->
+        <section class="skills-section">
+          <h3 class="h3 skills-section-title" data-i18n="my_skills">My Skills</h3>
+          <ul class="skills-list">
+            <li class="skills-item">
+              <div class="skill">
+                <div class="title-wrapper">
+                  <span class="skill-name" data-i18n="skill_web">Web Development</span>
+                  <data class="skill-value" value="85">85%</data>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 85%"></div>
+                </div>
+              </div>
+            </li>
+            <li class="skills-item">
+              <div class="skill">
+                <div class="title-wrapper">
+                  <span class="skill-name" data-i18n="skill_mobile">Mobile Development (Android)</span>
+                  <data class="skill-value" value="75">75%</data>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 75%"></div>
+                </div>
+              </div>
+            </li>
+            <li class="skills-item">
+              <div class="skill">
+                <div class="title-wrapper">
+                  <span class="skill-name" data-i18n="skill_sql">SQL / Databases</span>
+                  <data class="skill-value" value="80">80%</data>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 80%"></div>
+                </div>
+              </div>
+            </li>
+            <li class="skills-item">
+              <div class="skill">
+                <div class="title-wrapper">
+                  <span class="skill-name" data-i18n="skill_ui">UI / UX Design</span>
+                  <data class="skill-value" value="70">70%</data>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 70%"></div>
+                </div>
+              </div>
+            </li>
+            <li class="skills-item">
+              <div class="skill">
+                <div class="title-wrapper">
+                  <span class="skill-name" data-i18n="skill_git">Git / Collaboration</span>
+                  <data class="skill-value" value="80">80%</data>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 80%"></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
 
+        <!-- Projects: Mes projets -->
         <section class="projects-section">
 
-          <h3 class="h3 projects-section-title" data-i18n="my_projects">My Projects</h3>
+          <h2 class="h2 projects-main-title" data-i18n="mes_projets">Mes projets</h2>
 
+          <h3 class="h3 projects-subtitle" data-i18n="projets_principaux">Projets principaux</h3>
+          <ul class="projects-grid projects-grid-main">
+            <li class="project-card-main" data-project="planner" data-theme-color="#3DDC84" onclick="openProject('planner')">
+              <figure class="project-card-main-img">
+                <img src="./assets/images/icon-app.svg" alt="Android Planner" loading="lazy">
+                <div class="project-card-main-overlay">
+                  <h4 class="project-card-main-title" data-i18n="project_planner_title">Android Planner</h4>
+                  <p class="project-card-main-desc" data-i18n="project_planner_desc">Application de planification et gestion des tâches pour Android.</p>
+                </div>
+              </figure>
+            </li>
+            <li class="project-card-main" data-project="brawl" data-theme-color="#FF6B35" onclick="openProject('brawl')">
+              <figure class="project-card-main-img">
+                <img src="./assets/images/icon-dev.svg" alt="Brawl Stars" loading="lazy">
+                <div class="project-card-main-overlay">
+                  <h4 class="project-card-main-title" data-i18n="project_brawl_title">Brawl Stars — Outil</h4>
+                  <p class="project-card-main-desc" data-i18n="project_brawl_desc">Projet personnel lié à Brawl Stars.</p>
+                </div>
+              </figure>
+            </li>
+          </ul>
+
+          <h3 class="h3 projects-subtitle" data-i18n="autres_projets">Autres projets</h3>
           <ul class="projects-grid">
 
-            <li class="project-card" data-project="soutenances-uca" onclick="openProject()">
+            <li class="project-card" data-project="soutenances-uca" onclick="openProject('soutenances-uca')">
               <figure class="project-card-img">
                 <div class="project-card-icon">
                   <ion-icon name="eye-outline"></ion-icon>
@@ -200,10 +282,11 @@
               </figure>
 
               <div class="project-card-content">
-                <h4 class="project-card-title" data-i18n="project_title">Defense Management Platform — UCA</h4>
-                <p class="project-card-category">Web Application / SQL</p>
+                <h4 class="project-card-title" data-i18n="project_title">Plateforme de Gestion des Soutenances — UCA</h4>
+                <p class="project-card-category">Web / SQL</p>
               </div>
             </li>
+            <!-- Add more "other" projects: Pokédex/DB, mods, hospital, etc. -->
 
           </ul>
 
@@ -482,9 +565,20 @@
 
       </article>
 
-
-
-
+      <!-- Project detail (simple placeholder for planner, brawl, etc.) -->
+      <article class="project-detail project-detail-simple" data-page="project-detail-simple">
+        <header class="project-detail-header">
+          <button class="back-btn" data-back-btn onclick="goBack()">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            <span data-i18n="back">Back</span>
+          </button>
+          <h2 class="h2 article-title" data-simple-title>Android Planner</h2>
+        </header>
+        <div class="project-detail-content">
+          <p class="project-simple-desc" data-simple-desc>Description à compléter.</p>
+          <p class="project-simple-note" data-i18n="project_coming_soon">Page détaillée à venir.</p>
+        </div>
+      </article>
 
       <!--
         - #CONTACT

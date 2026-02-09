@@ -22,8 +22,23 @@ const translations = {
     
     // Projects
     my_projects: "Mes Projets",
+    mes_projets: "Mes projets",
+    projets_principaux: "Projets principaux",
+    autres_projets: "Autres projets",
     project_title: "Plateforme de Gestion des Soutenances — UCA",
     project_subtitle: "Gestion et analyse des soutenances et alternances",
+    project_planner_title: "Android Planner",
+    project_planner_desc: "Application de planification et gestion des tâches pour Android.",
+    project_brawl_title: "Brawl Stars — Outil",
+    project_brawl_desc: "Projet personnel lié à Brawl Stars.",
+    project_coming_soon: "Page détaillée à venir.",
+    // My Skills
+    my_skills: "My Skills",
+    skill_web: "Développement Web",
+    skill_mobile: "Développement Mobile (Android)",
+    skill_sql: "SQL / Bases de données",
+    skill_ui: "UI / UX Design",
+    skill_git: "Git / Collaboration",
     screenshots: "Captures d'écran",
     view_github: "Voir sur GitHub",
     
@@ -127,8 +142,23 @@ const translations = {
     
     // Projects
     my_projects: "My Projects",
+    mes_projets: "My Projects",
+    projets_principaux: "Main Projects",
+    autres_projets: "Other Projects",
     project_title: "Defense Management Platform — UCA",
     project_subtitle: "Management and analysis of thesis defenses and internships",
+    project_planner_title: "Android Planner",
+    project_planner_desc: "Task planning and management app for Android.",
+    project_brawl_title: "Brawl Stars — Tool",
+    project_brawl_desc: "Personal project related to Brawl Stars.",
+    project_coming_soon: "Detailed page coming soon.",
+    // My Skills
+    my_skills: "My Skills",
+    skill_web: "Web Development",
+    skill_mobile: "Mobile Development (Android)",
+    skill_sql: "SQL / Databases",
+    skill_ui: "UI / UX Design",
+    skill_git: "Git / Collaboration",
     screenshots: "Screenshots",
     view_github: "View on GitHub",
     
@@ -249,49 +279,73 @@ function navigateTo(pageName) {
   window.scrollTo(0, 0);
 }
 
-function openProject() {
+// Project IDs: 'soutenances-uca' (full detail), 'planner', 'brawl' (simple placeholder)
+// Add more later: 'pokedex', 'mods', 'hospital', etc.
+const PROJECTS_WITH_FULL_DETAIL = ['soutenances-uca'];
+
+function openProject(projectId) {
   const aboutPage = document.querySelector('[data-page="about"]');
   const projectDetailPage = document.querySelector('[data-page="project-detail"]');
+  const projectDetailSimple = document.querySelector('[data-page="project-detail-simple"]');
   const navigationLinks = document.querySelectorAll("[data-nav-link]");
   
-  // Hide about page
-  if (aboutPage) {
-    aboutPage.classList.remove('active');
+  if (!aboutPage) return;
+  
+  aboutPage.classList.remove('active');
+  if (projectDetailPage) projectDetailPage.classList.remove('active');
+  if (projectDetailSimple) projectDetailSimple.classList.remove('active');
+  
+  if (PROJECTS_WITH_FULL_DETAIL.indexOf(projectId) !== -1) {
+    if (projectDetailPage) projectDetailPage.classList.add('active');
+  } else {
+    // Show simple placeholder for planner, brawl, etc.
+    if (projectDetailSimple) {
+      const titleEl = projectDetailSimple.querySelector('[data-simple-title]');
+      const descEl = projectDetailSimple.querySelector('[data-simple-desc]');
+      const content = getProjectSimpleContent(projectId);
+      if (titleEl) titleEl.textContent = content.title;
+      if (descEl) descEl.textContent = content.desc;
+      projectDetailSimple.classList.add('active');
+    }
   }
   
-  // Show project detail page
-  if (projectDetailPage) {
-    projectDetailPage.classList.add('active');
-  }
-  
-  // Update navigation (remove active from all)
-  navigationLinks.forEach(link => {
-    link.classList.remove('active');
-  });
-  
+  navigationLinks.forEach(link => link.classList.remove('active'));
   window.scrollTo(0, 0);
+}
+
+// Données pour les projets sans page détaillée (à compléter plus tard)
+const PROJECTS_SIMPLE = {
+  planner: {
+    titleKey: 'project_planner_title',
+    descKey: 'project_planner_desc'
+  },
+  brawl: {
+    titleKey: 'project_brawl_title',
+    descKey: 'project_brawl_desc'
+  }
+};
+
+function getProjectSimpleContent(projectId) {
+  const data = PROJECTS_SIMPLE[projectId];
+  if (!data || !translations[currentLang]) return { title: '', desc: '' };
+  return {
+    title: translations[currentLang][data.titleKey] || data.titleKey,
+    desc: translations[currentLang][data.descKey] || data.descKey
+  };
 }
 
 function goBack() {
   const aboutPage = document.querySelector('[data-page="about"]');
   const projectDetailPage = document.querySelector('[data-page="project-detail"]');
+  const projectDetailSimple = document.querySelector('[data-page="project-detail-simple"]');
   const navigationLinks = document.querySelectorAll("[data-nav-link]");
   
-  // Hide project detail page
-  if (projectDetailPage) {
-    projectDetailPage.classList.remove('active');
-  }
+  if (projectDetailPage) projectDetailPage.classList.remove('active');
+  if (projectDetailSimple) projectDetailSimple.classList.remove('active');
+  if (aboutPage) aboutPage.classList.add('active');
   
-  // Show about page
-  if (aboutPage) {
-    aboutPage.classList.add('active');
-  }
-  
-  // Update navigation
   navigationLinks.forEach(link => {
-    if (link.getAttribute('data-i18n') === 'about') {
-      link.classList.add('active');
-    }
+    if (link.getAttribute('data-i18n') === 'about') link.classList.add('active');
   });
   
   window.scrollTo(0, 0);
