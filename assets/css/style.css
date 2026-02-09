@@ -72,14 +72,14 @@
   --ff-poppins: 'Poppins', sans-serif;
 
   /* font-size */
-  --fs-1: 24px;
-  --fs-2: 18px;
-  --fs-3: 17px;
-  --fs-4: 16px;
-  --fs-5: 15px;
-  --fs-6: 14px;
-  --fs-7: 13px;
-  --fs-8: 11px;
+  --fs-1: 28px;
+  --fs-2: 22px;
+  --fs-3: 20px;
+  --fs-4: 18px;
+  --fs-5: 16px;
+  --fs-6: 15px;
+  --fs-7: 14px;
+  --fs-8: 12px;
 
   /* font-weight */
   --fw-300: 300;
@@ -1268,13 +1268,14 @@ textarea.form-input::-webkit-resizer { display: none; }
      * typography
      */
 
-    --fs-1: 32px;
-    --fs-2: 24px;
-    --fs-3: 26px;
-    --fs-4: 18px;
-    --fs-6: 15px;
+    --fs-1: 36px;
+    --fs-2: 28px;
+    --fs-3: 28px;
+    --fs-4: 20px;
+    --fs-5: 18px;
+    --fs-6: 16px;
     --fs-7: 15px;
-    --fs-8: 12px;
+    --fs-8: 13px;
 
   }
 
@@ -1285,7 +1286,7 @@ textarea.form-input::-webkit-resizer { display: none; }
    */
 
   .sidebar, article {
-    width: 520px;
+    width: 580px;
     margin-inline: auto;
     padding: 30px;
   }
@@ -1551,7 +1552,7 @@ textarea.form-input::-webkit-resizer { display: none; }
    * REUSED STYLE
    */
 
-  .sidebar, article { width: 700px; }
+  .sidebar, article { width: 800px; }
 
   .has-scrollbar::-webkit-scrollbar-button { width: 100px; }
 
@@ -1670,7 +1671,7 @@ textarea.form-input::-webkit-resizer { display: none; }
    */
 
   .sidebar, article {
-    width: 950px;
+    width: 1050px;
     box-shadow: var(--shadow-5);
   }
 
@@ -1799,7 +1800,7 @@ textarea.form-input::-webkit-resizer { display: none; }
    */
 
   main {
-    max-width: 1200px;
+    max-width: 1400px;
     margin-inline: auto;
     display: flex;
     justify-content: center;
