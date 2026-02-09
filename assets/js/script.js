@@ -31,10 +31,11 @@ const translations = {
     project_planner_desc: "Application de planification et gestion des tâches pour Android.",
     project_brawl_title: "Contrôleur automatique pour Brawl Stars",
     project_brawl_desc: "Assistant IA avec détection d'objets en temps réel (YOLOv8) pour Brawl Stars.",
+    project_db_title: "Conception et réalisation de bases de données",
     project_category_personal: "Projet personnel",
     brawl_title: "Contrôleur automatique pour Brawl Stars",
     brawl_subtitle: "Assistant IA et vision par ordinateur (YOLOv8)",
-    brawl_context: "Projet personnel d'assistant IA et de contrôleur automatique basé sur la vision par ordinateur, appliqué au jeu Brawl Stars. L'application desktop Python capture une zone d'écran en temps réel, détecte les objets avec YOLOv8 et envoie des commandes (WASD) selon la position des objets — démonstration de vision par ordinateur et d'automatisation dans un cadre ludique.",
+    brawl_context: "Projet personnel d'assistant IA et de contrôleur automatique basé sur la vision par ordinateur, appliqué au jeu Brawl Stars. Le jeu est lancé sur un émulateur Android sur ordinateur ; l'application desktop Python capture une zone d'écran en temps réel, détecte les objets avec YOLOv8 et envoie des commandes (WASD) selon la position des objets — démonstration de vision par ordinateur et d'automatisation dans un cadre ludique.",
     brawl_obj1: "Réaliser un assistant IA avec détection d'objets en temps réel (YOLOv8)",
     brawl_obj2: "Capturer une zone d'écran configurable et générer des commandes (WASD) selon la position des objets",
     brawl_obj3: "Proposer une interface graphique (Tkinter) avec prévisualisation et réglages",
@@ -69,9 +70,34 @@ const translations = {
     brawl_img_console: "Sortie console avec mises à jour en temps réel",
     brawl_img_structure: "Structure des fichiers du projet",
     project_coming_soon: "Page détaillée à venir.",
+    // Database project
+    db_title: "Conception et réalisation de bases de données",
+    db_subtitle: "Modélisation, schémas relationnels et implémentation SQL",
+    db_context: "Je conçois et réalise des bases de données : de l'analyse des besoins au schéma relationnel (MCD, MLD) jusqu'à l'implémentation en SQL. Ce portfolio présente des exemples de projets (interfaces de gestion, schémas) ainsi qu'un modèle de données structuré pour une application de suivi patients (HospitalData, C#/JSON) — conception d'entités, relations et couche de stockage.",
+    db_obj1: "Élaborer des schémas de données cohérents et normalisés",
+    db_obj2: "Implémenter les bases en SQL (tables, contraintes, requêtes)",
+    db_obj3: "Mettre en place une couche de stockage fiable (SQL ou structuré type JSON)",
+    db_mission1: "Analyse des besoins et identification des entités et relations",
+    db_mission2: "Conception du modèle conceptuel (MCD) et logique (MLD / tables)",
+    db_mission3: "Implémentation (scripts SQL, gestionnaires de données), tests et documentation",
+    db_step1_title: "Analyse des besoins et recueil des données",
+    db_step1_desc: "Identification des entités, attributs et règles métier ; définition des contraintes et des relations entre les données.",
+    db_step2_title: "Modèle conceptuel (MCD)",
+    db_step2_desc: "Construction du schéma conceptuel : entités, associations, cardinalités, pour une vision indépendante du SGBD.",
+    db_step3_title: "Modèle logique et physique",
+    db_step3_desc: "Passage au schéma relationnel (MLD), choix des clés, normalisation ; définition des tables et types de données.",
+    db_step4_title: "Implémentation et tests",
+    db_step4_desc: "Écriture des scripts SQL (CREATE, contraintes, vues), mise en place des accès données (ORM, managers, JSON) et tests de cohérence.",
+    db_skill1: "Conception de schémas relationnels (MCD, MLD) et normalisation",
+    db_skill2: "SQL : requêtes, jointures, contraintes, vues",
+    db_skill3: "Couche de stockage structuré (C#, JSON, managers) pour modèles riches",
+    db_img1: "Capture d'écran — projet de base de données",
+    db_img2: "Capture d'écran — interface ou schéma",
+    db_img_model: "Modèle de données HospitalData (patients, expériences, sessions, superviseurs)",
+    db_conclusion: "La conception de bases de données est au cœur de mes projets : que ce soit en SQL pour des applications web (UCA, projets universitaires) ou en modèle structuré (HospitalData), j'applique une démarche rigoureuse — analyse, modélisation, implémentation et tests — pour des données fiables et maintenables.",
     // My Skills
     my_skills: "Mes compétences",
-    skill_web: "Développement Web",
+    skill_web: "Développement Web (HTML, CSS, JavaScript, PHP)",
     skill_sql: "SQL / Bases de données",
     skill_kotlin: "Kotlin (Android)",
     skill_git: "Git / Collaboration",
@@ -192,10 +218,11 @@ const translations = {
     project_planner_desc: "Task planning and management app for Android.",
     project_brawl_title: "Automatic controller for Brawl Stars",
     project_brawl_desc: "AI assistant with real-time object detection (YOLOv8) for Brawl Stars.",
+    project_db_title: "Database design and implementation",
     project_category_personal: "Personal project",
     brawl_title: "Automatic controller for Brawl Stars",
     brawl_subtitle: "AI assistant and computer vision (YOLOv8)",
-    brawl_context: "Personal project of an AI assistant and automatic controller based on computer vision, applied to the game Brawl Stars. The Python desktop application captures a screen region in real time, detects objects with YOLOv8 and sends commands (WASD) based on object position — demonstrating computer vision and automation in a game context.",
+    brawl_context: "Personal project of an AI assistant and automatic controller based on computer vision, applied to the game Brawl Stars. The game runs on an Android emulator on the computer ; the Python desktop application captures a screen region in real time, detects objects with YOLOv8 and sends commands (WASD) based on object position — demonstrating computer vision and automation in a game context.",
     brawl_obj1: "Build an AI assistant with real-time object detection (YOLOv8)",
     brawl_obj2: "Capture a configurable screen region and generate commands (WASD) based on object position",
     brawl_obj3: "Provide a graphical interface (Tkinter) with live preview and settings",
@@ -232,7 +259,7 @@ const translations = {
     project_coming_soon: "Detailed page coming soon.",
     // My Skills
     my_skills: "My Skills",
-    skill_web: "Web Development",
+    skill_web: "Web Development (HTML, CSS, JavaScript, PHP)",
     skill_sql: "SQL / Databases",
     skill_kotlin: "Kotlin (Android)",
     skill_git: "Git / Collaboration",
@@ -319,6 +346,32 @@ const translations = {
     img_resources: "Resources Administration",
     img_analytics: "Data Analysis",
     
+    // Database project
+    db_title: "Database design and implementation",
+    db_subtitle: "Data modelling, relational schemas and SQL implementation",
+    db_context: "I design and implement databases: from requirements analysis to relational schema (conceptual and logical models) and SQL implementation. This section shows project examples (management interfaces, schemas) and a structured data model for a patient-tracking application (HospitalData, C#/JSON) — entities, relationships and storage layer.",
+    db_obj1: "Design coherent, normalized data schemas",
+    db_obj2: "Implement databases in SQL (tables, constraints, queries)",
+    db_obj3: "Provide a reliable storage layer (SQL or structured e.g. JSON)",
+    db_mission1: "Requirements analysis and identification of entities and relationships",
+    db_mission2: "Conceptual model (ER/MCD) and logical model (MLD / tables)",
+    db_mission3: "Implementation (SQL scripts, data managers), testing and documentation",
+    db_step1_title: "Requirements and data gathering",
+    db_step1_desc: "Identify entities, attributes and business rules; define constraints and relationships.",
+    db_step2_title: "Conceptual model (MCD)",
+    db_step2_desc: "Build the conceptual schema: entities, associations, cardinalities, independent of the DBMS.",
+    db_step3_title: "Logical and physical model",
+    db_step3_desc: "Translate to relational schema (MLD), keys, normalization; define tables and data types.",
+    db_step4_title: "Implementation and testing",
+    db_step4_desc: "Write SQL scripts (CREATE, constraints, views), set up data access (ORM, managers, JSON) and consistency tests.",
+    db_skill1: "Relational schema design (MCD, MLD) and normalization",
+    db_skill2: "SQL: queries, joins, constraints, views",
+    db_skill3: "Structured storage layer (C#, JSON, managers) for rich models",
+    db_img1: "Screenshot — database project",
+    db_img2: "Screenshot — interface or schema",
+    db_img_model: "HospitalData data model (patients, experiences, sessions, supervisors)",
+    db_conclusion: "Database design is central to my work: whether in SQL for web applications (UCA, university projects) or in a structured model (HospitalData), I follow a rigorous process — analysis, modelling, implementation and testing — for reliable, maintainable data.",
+    
     // Contact
     contact_form: "Contact Form",
     your_name: "Your name",
@@ -364,13 +417,15 @@ function navigateTo(pageName) {
 // Project IDs: 'soutenances-uca', 'brawl' (full detail), 'planner' (simple placeholder)
 const PROJECT_DETAIL_PAGES = {
   'soutenances-uca': 'project-detail',
-  'brawl': 'project-detail-brawl'
+  'brawl': 'project-detail-brawl',
+  'database': 'project-detail-database'
 };
 
 function openProject(projectId) {
   const aboutPage = document.querySelector('[data-page="about"]');
   const projectDetailPage = document.querySelector('[data-page="project-detail"]');
   const projectDetailBrawl = document.querySelector('[data-page="project-detail-brawl"]');
+  const projectDetailDatabase = document.querySelector('[data-page="project-detail-database"]');
   const projectDetailSimple = document.querySelector('[data-page="project-detail-simple"]');
   const navigationLinks = document.querySelectorAll("[data-nav-link]");
   
@@ -379,6 +434,7 @@ function openProject(projectId) {
   aboutPage.classList.remove('active');
   if (projectDetailPage) projectDetailPage.classList.remove('active');
   if (projectDetailBrawl) projectDetailBrawl.classList.remove('active');
+  if (projectDetailDatabase) projectDetailDatabase.classList.remove('active');
   if (projectDetailSimple) projectDetailSimple.classList.remove('active');
   
   const detailPage = PROJECT_DETAIL_PAGES[projectId];
@@ -386,6 +442,8 @@ function openProject(projectId) {
     projectDetailPage.classList.add('active');
   } else if (detailPage === 'project-detail-brawl' && projectDetailBrawl) {
     projectDetailBrawl.classList.add('active');
+  } else if (detailPage === 'project-detail-database' && projectDetailDatabase) {
+    projectDetailDatabase.classList.add('active');
   } else if (projectDetailSimple) {
     const titleEl = projectDetailSimple.querySelector('[data-simple-title]');
     const descEl = projectDetailSimple.querySelector('[data-simple-desc]');
@@ -424,11 +482,13 @@ function goBack() {
   const aboutPage = document.querySelector('[data-page="about"]');
   const projectDetailPage = document.querySelector('[data-page="project-detail"]');
   const projectDetailBrawl = document.querySelector('[data-page="project-detail-brawl"]');
+  const projectDetailDatabase = document.querySelector('[data-page="project-detail-database"]');
   const projectDetailSimple = document.querySelector('[data-page="project-detail-simple"]');
   const navigationLinks = document.querySelectorAll("[data-nav-link]");
   
   if (projectDetailPage) projectDetailPage.classList.remove('active');
   if (projectDetailBrawl) projectDetailBrawl.classList.remove('active');
+  if (projectDetailDatabase) projectDetailDatabase.classList.remove('active');
   if (projectDetailSimple) projectDetailSimple.classList.remove('active');
   if (aboutPage) aboutPage.classList.add('active');
   

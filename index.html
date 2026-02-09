@@ -329,7 +329,18 @@
                 <p class="project-card-category" data-i18n="project_category_personal">Projet personnel</p>
               </div>
             </li>
-            <!-- Add more "other" projects: Pokédex/DB, mods, hospital, etc. -->
+            <li class="project-card" data-project="database" onclick="openProject('database')">
+              <figure class="project-card-img">
+                <div class="project-card-icon">
+                  <ion-icon name="eye-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/icon-design.svg" alt="Bases de données" loading="lazy">
+              </figure>
+              <div class="project-card-content">
+                <h4 class="project-card-title" data-i18n="project_db_title">Conception et réalisation de bases de données</h4>
+                <p class="project-card-category" data-i18n="project_category_personal">Projet personnel</p>
+              </div>
+            </li>
 
           </ul>
 
@@ -627,7 +638,7 @@
           <section class="project-section">
             <h3 class="h3" data-i18n="context_title">Contexte et sujet</h3>
             <p data-i18n="brawl_context">
-              Projet personnel d'assistant IA et de contrôleur automatique basé sur la vision par ordinateur, appliqué au jeu Brawl Stars. L'application desktop Python capture une zone d'écran en temps réel, détecte les objets avec YOLOv8 et envoie des commandes (WASD) selon la position des objets — démonstration de vision par ordinateur et d'automatisation dans un cadre ludique.
+              Projet personnel d'assistant IA et de contrôleur automatique basé sur la vision par ordinateur, appliqué au jeu Brawl Stars. Le jeu est lancé sur un émulateur Android sur ordinateur ; l'application desktop Python capture une zone d'écran en temps réel, détecte les objets avec YOLOv8 et envoie des commandes (WASD) selon la position des objets — démonstration de vision par ordinateur et d'automatisation dans un cadre ludique.
             </p>
           </section>
           <!-- Objectifs -->
@@ -754,6 +765,124 @@
           <section class="project-section project-conclusion">
             <h3 class="h3" data-i18n="conclusion_title">Conclusion et réflexion</h3>
             <p data-i18n="brawl_conclusion"></p>
+          </section>
+        </div>
+      </article>
+
+      <!-- Project detail: Conception de bases de données -->
+      <article class="project-detail" data-page="project-detail-database">
+        <header class="project-detail-header">
+          <button class="back-btn" data-back-btn onclick="goBack()">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            <span data-i18n="back">Retour</span>
+          </button>
+          <h2 class="h2 article-title" data-i18n="db_title">Conception et réalisation de bases de données</h2>
+          <p class="project-subtitle" data-i18n="db_subtitle">Modélisation, schémas relationnels et implémentation SQL</p>
+        </header>
+        <div class="project-detail-content">
+          <div class="project-hero">
+            <img src="./assets/images/db-screenshot1.png" alt="Projet base de données" loading="lazy">
+          </div>
+          <section class="project-section">
+            <h3 class="h3" data-i18n="context_title">Contexte et sujet</h3>
+            <p data-i18n="db_context"></p>
+          </section>
+          <section class="project-section">
+            <h3 class="h3" data-i18n="objectives_title">Objectifs</h3>
+            <ul class="features-list">
+              <li data-i18n="db_obj1"></li>
+              <li data-i18n="db_obj2"></li>
+              <li data-i18n="db_obj3"></li>
+            </ul>
+          </section>
+          <section class="project-section">
+            <h3 class="h3" data-i18n="missions_title">Missions principales</h3>
+            <ul class="features-list">
+              <li data-i18n="db_mission1"></li>
+              <li data-i18n="db_mission2"></li>
+              <li data-i18n="db_mission3"></li>
+            </ul>
+          </section>
+          <section class="project-section">
+            <h3 class="h3" data-i18n="steps_title">Étapes générales de conception</h3>
+            <div class="timeline-project">
+              <div class="timeline-item-project">
+                <span class="timeline-step">1</span>
+                <div class="timeline-content">
+                  <h4 data-i18n="db_step1_title"></h4>
+                  <p data-i18n="db_step1_desc"></p>
+                </div>
+              </div>
+              <div class="timeline-item-project">
+                <span class="timeline-step">2</span>
+                <div class="timeline-content">
+                  <h4 data-i18n="db_step2_title"></h4>
+                  <p data-i18n="db_step2_desc"></p>
+                </div>
+              </div>
+              <div class="timeline-item-project">
+                <span class="timeline-step">3</span>
+                <div class="timeline-content">
+                  <h4 data-i18n="db_step3_title"></h4>
+                  <p data-i18n="db_step3_desc"></p>
+                </div>
+              </div>
+              <div class="timeline-item-project">
+                <span class="timeline-step">4</span>
+                <div class="timeline-content">
+                  <h4 data-i18n="db_step4_title"></h4>
+                  <p data-i18n="db_step4_desc"></p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="project-section">
+            <h3 class="h3" data-i18n="skills_title">Compétences mobilisées</h3>
+            <div class="project-tags">
+              <span class="tag">SQL</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">C#</span>
+              <span class="tag">JSON</span>
+              <span class="tag">MCD / MLD</span>
+            </div>
+            <ul class="features-list" style="margin-top: 16px;">
+              <li data-i18n="db_skill1"></li>
+              <li data-i18n="db_skill2"></li>
+              <li data-i18n="db_skill3"></li>
+            </ul>
+          </section>
+          <section class="project-section">
+            <h3 class="h3" data-i18n="screenshots">Captures et schémas</h3>
+            <div class="gallery-grid">
+              <div class="gallery-item">
+                <figure class="gallery-img">
+                  <img src="./assets/images/db-screenshot1.png" alt="Projet base de données - capture 1" loading="lazy">
+                </figure>
+                <p class="gallery-caption" data-i18n="db_img1"></p>
+              </div>
+              <div class="gallery-item">
+                <figure class="gallery-img">
+                  <img src="./assets/images/db-screenshot2.png" alt="Projet base de données - capture 2" loading="lazy">
+                </figure>
+                <p class="gallery-caption" data-i18n="db_img2"></p>
+              </div>
+              <div class="gallery-item">
+                <figure class="gallery-img">
+                  <img src="./assets/images/hospitaldata-model.svg" alt="Modèle HospitalData" loading="lazy">
+                </figure>
+                <p class="gallery-caption" data-i18n="db_img_model"></p>
+              </div>
+            </div>
+          </section>
+          <section class="project-section project-conclusion">
+            <h3 class="h3" data-i18n="conclusion_title">Conclusion</h3>
+            <p data-i18n="db_conclusion"></p>
+          </section>
+          <section class="project-links">
+            <a href="https://github.com/65747/HospitalData" target="_blank" class="project-link-btn">
+              <ion-icon name="logo-github"></ion-icon>
+              <span data-i18n="view_github">Voir sur GitHub</span> — HospitalData
+            </a>
           </section>
         </div>
       </article>
