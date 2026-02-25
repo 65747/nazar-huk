@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" width="120" height="140">
+  <defs>
+    <linearGradient id="amber-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4920a;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#a06b00;stop-opacity:0.6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- skull shape - minimal horror style -->
+  <ellipse cx="60" cy="52" rx="38" ry="42" fill="none" stroke="url(#amber-glow)" stroke-width="1.5" opacity="0.85"/>
+  <!-- eyes -->
+  <ellipse cx="48" cy="48" rx="8" ry="10" fill="#0a0a0c" stroke="#d4920a" stroke-width="1" opacity="0.9"/>
+  <ellipse cx="72" cy="48" rx="8" ry="10" fill="#0a0a0c" stroke="#d4920a" stroke-width="1" opacity="0.9"/>
+  <circle cx="48" cy="48" r="2" fill="#d4920a" opacity="0.6"/>
+  <circle cx="72" cy="48" r="2" fill="#d4920a" opacity="0.6"/>
+  <!-- nose cavity -->
+  <path d="M 60 58 L 56 78 L 64 78 Z" fill="none" stroke="#d4920a" stroke-width="1" opacity="0.7"/>
+  <!-- mouth - creepy grin -->
+  <path d="M 38 88 Q 60 102 82 88" fill="none" stroke="#d4920a" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+  <!-- teeth hint -->
+  <line x1="48" y1="88" x2="48" y2="92" stroke="#d4920a" stroke-width="0.8" opacity="0.5"/>
+  <line x1="60" y1="90" x2="60" y2="94" stroke="#d4920a" stroke-width="0.8" opacity="0.5"/>
+  <line x1="72" y1="88" x2="72" y2="92" stroke="#d4920a" stroke-width="0.8" opacity="0.5"/>
+  <!-- cracks / texture -->
+  <path d="M 28 35 L 32 42 M 92 38 L 88 45" stroke="#d4920a" stroke-width="0.5" opacity="0.3"/>
+</svg>
