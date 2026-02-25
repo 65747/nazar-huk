@@ -1,72 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 340" width="520" height="340">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 380" width="580" height="380">
   <defs>
     <style>
-      .box { fill: hsl(240, 2%, 18%); stroke: hsl(0, 0%, 35%); stroke-width: 1.5; rx: 6; }
-      .title { fill: hsl(45, 100%, 72%); font: 600 11px 'Segoe UI', sans-serif; }
-      .attr { fill: hsl(0, 0%, 88%); font: 10px 'Segoe UI', sans-serif; }
-      .line { stroke: hsl(0, 0%, 45%); stroke-width: 1; fill: none; }
-      .card { stroke: hsl(45, 100%, 72%); stroke-width: 1.5; }
+      .box { fill: #2d2d30; stroke: #555; stroke-width: 1.5; }
+      .title { fill: #e8b923; font-weight: 600; font-size: 12px; font-family: sans-serif; }
+      .attr { fill: #e0e0e0; font-size: 10px; font-family: sans-serif; }
+      .small { fill: #999; font-size: 9px; font-family: sans-serif; }
+      .line { stroke: #666; stroke-width: 1.2; fill: none; }
+      .card { fill: #2d2d30; stroke: #e8b923; stroke-width: 1.5; }
     </style>
   </defs>
-  <rect width="520" height="340" fill="hsl(240, 2%, 13%)"/>
-  <!-- Patient -->
-  <rect class="box" x="20" y="20" width="120" height="100"/>
-  <text class="title" x="30" y="38">Patient</text>
-  <text class="attr" x="28" y="54">Identifiant (PK)</text>
-  <text class="attr" x="28" y="66">Nom, Prénom</text>
-  <text class="attr" x="28" y="78">Age, Sexe</text>
-  <text class="attr" x="28" y="90">Pathologie</text>
-  <text class="attr" x="28" y="102">CoteNeglige</text>
-  <!-- Experience -->
-  <rect class="box" x="180" y="20" width="120" height="88"/>
-  <text class="title" x="190" y="38">Experience</text>
-  <text class="attr" x="188" y="54">IdEnvironnement</text>
-  <text class="attr" x="188" y="66">Type (ouvert/fermé)</text>
-  <text class="attr" x="188" y="78">Positions[]</text>
-  <text class="attr" x="188" y="90">StartPositions</text>
-  <text class="attr" x="188" y="102">Difficultes</text>
-  <!-- Position -->
-  <rect class="box" x="340" y="20" width="120" height="88"/>
-  <text class="title" x="350" y="38">Position</text>
-  <text class="attr" x="348" y="54">IdPosition</text>
-  <text class="attr" x="348" y="66">Coordinates (x,y,z)</text>
-  <text class="attr" x="348" y="78">Description</text>
-  <text class="attr" x="348" y="90">DifficulteParPosition</text>
-  <!-- Session -->
-  <rect class="box" x="20" y="160" width="140" height="100"/>
-  <text class="title" x="30" y="178">Session</text>
-  <text class="attr" x="28" y="194">IdSession (PK)</text>
-  <text class="attr" x="28" y="206">IdPatient (FK)</text>
-  <text class="attr" x="28" y="218">IdSuperviseur (FK)</text>
-  <text class="attr" x="28" y="230">DateDebut, DateFin</text>
-  <text class="attr" x="28" y="242">EnvironnementUtilise</text>
-  <text class="attr" x="28" y="254">Resultats</text>
-  <!-- Superviseur -->
-  <rect class="box" x="200" y="160" width="120" height="72"/>
-  <text class="title" x="210" y="178">Superviseur</text>
-  <text class="attr" x="208" y="194">IdSuperviseur (PK)</text>
-  <text class="attr" x="208" y="206">Nom, Prénom</text>
-  <text class="attr" x="208" y="218">Fonction</text>
-  <!-- Observation -->
-  <rect class="box" x="360" y="160" width="100" height="58"/>
-  <text class="title" x="370" y="178">Observation</text>
-  <text class="attr" x="368" y="194">clinique</text>
-  <text class="attr" x="368" y="206">(lié Patient)</text>
-  <!-- Storage layer -->
-  <rect class="box card" x="20" y="270" width="440" height="56"/>
-  <text class="title" x="30" y="288">Couche stockage (C#)</text>
-  <text class="attr" x="28" y="304">PatientsManager, SuperviseursManager, SessionsManager · JSON (Data/*.json) · PatientDatabase (modèle riche)</text>
-  <!-- Relations -->
-  <path class="line" d="M 140 70 L 175 65"/>
-  <text class="attr" x="148" y="62" font-size="9">1,n</text>
-  <path class="line" d="M 300 65 L 335 65"/>
-  <text class="attr" x="308" y="62" font-size="9">1,n</text>
-  <path class="line" d="M 80 120 L 80 155"/>
-  <path class="line" d="M 90 160 L 90 155"/>
-  <text class="attr" x="70" y="142" font-size="9">1,n Session</text>
-  <path class="line" d="M 260 196 L 315 196"/>
-  <text class="attr" x="272" y="192" font-size="9">n,1</text>
-  <path class="line" d="M 140 210 L 195 210"/>
-  <text class="attr" x="158" y="206" font-size="9">n,1</text>
-  <text fill="hsl(0,0%,60%)" font-size="9" x="30" y="328">HospitalData  Modèle de données (patients, expériences VR/RA, sessions, superviseurs)</text>
+  <rect width="580" height="380" fill="#1c1c1e"/>
+  <rect class="box" x="24" y="24" width="132" height="112" rx="6"/>
+  <text class="title" x="34" y="42">Patient</text>
+  <text class="attr" x="32" y="58">Identifiant (PK)</text>
+  <text class="attr" x="32" y="72">Nom, Pr&#233;nom</text>
+  <text class="attr" x="32" y="86">Age, Sexe</text>
+  <text class="attr" x="32" y="100">Pathologie</text>
+  <text class="attr" x="32" y="114">CoteNeglige</text>
+  <text class="small" x="32" y="128">(c&#244;t&#233; n&#233;glig&#233;)</text>
+  <rect class="box" x="192" y="24" width="132" height="100" rx="6"/>
+  <text class="title" x="202" y="42">Experience</text>
+  <text class="attr" x="200" y="58">IdEnvironnement (PK)</text>
+  <text class="attr" x="200" y="72">IdPatient (FK)</text>
+  <text class="attr" x="200" y="86">Type (ouvert/ferm&#233;)</text>
+  <text class="attr" x="200" y="100">StartPositions, Difficultes</text>
+  <text class="attr" x="200" y="114">Positions[]</text>
+  <rect class="box" x="356" y="24" width="132" height="100" rx="6"/>
+  <text class="title" x="366" y="42">Position</text>
+  <text class="attr" x="364" y="58">IdPosition (PK)</text>
+  <text class="attr" x="364" y="72">IdEnvironnement (FK)</text>
+  <text class="attr" x="364" y="86">Coordinates (x,y,z)</text>
+  <text class="attr" x="364" y="100">Description</text>
+  <text class="attr" x="364" y="114">DifficulteParPosition</text>
+  <rect class="box" x="24" y="168" width="148" height="112" rx="6"/>
+  <text class="title" x="34" y="186">Session</text>
+  <text class="attr" x="32" y="202">IdSession (PK)</text>
+  <text class="attr" x="32" y="216">IdPatient (FK)</text>
+  <text class="attr" x="32" y="230">IdSuperviseur (FK)</text>
+  <text class="attr" x="32" y="244">IdEnvironnement (FK)</text>
+  <text class="attr" x="32" y="258">DateDebut, DateFin</text>
+  <text class="attr" x="32" y="272">Resultats</text>
+  <rect class="box" x="208" y="168" width="124" height="80" rx="6"/>
+  <text class="title" x="218" y="186">Superviseur</text>
+  <text class="attr" x="216" y="202">IdSuperviseur (PK)</text>
+  <text class="attr" x="216" y="216">Nom, Pr&#233;nom</text>
+  <text class="attr" x="216" y="230">Fonction</text>
+  <rect class="box" x="368" y="168" width="120" height="80" rx="6"/>
+  <text class="title" x="378" y="186">Observation</text>
+  <text class="attr" x="376" y="202">IdObservation (PK)</text>
+  <text class="attr" x="376" y="216">IdPatient (FK)</text>
+  <text class="attr" x="376" y="230">clinique (li&#233; Patient)</text>
+  <rect class="card" x="24" y="298" width="464" height="64" rx="6"/>
+  <text class="title" x="34" y="318">Couche stockage (C#)</text>
+  <text class="attr" x="32" y="334">PatientsManager, SuperviseursManager, SessionsManager &#183; JSON (Data/*.json) &#183; PatientDatabase (mod&#232;le riche)</text>
+  <text class="attr" x="32" y="352" fill="#777" font-size="9">HospitalData &#8212; Mod&#232;le de donn&#233;es (patients, exp&#233;riences VR/RA, sessions, superviseurs)</text>
+  <path class="line" d="M 156 80 L 192 74"/>
+  <text class="attr" x="158" y="72" font-size="9">1</text>
+  <text class="attr" x="248" y="72" font-size="9">n</text>
+  <path class="line" d="M 324 74 L 356 74"/>
+  <text class="attr" x="318" y="72" font-size="9">1</text>
+  <text class="attr" x="418" y="72" font-size="9">n</text>
+  <path class="line" d="M 90 136 L 90 168"/>
+  <text class="attr" x="72" y="148" font-size="9">1</text>
+  <text class="attr" x="72" y="228" font-size="9">n</text>
+  <path class="line" d="M 172 224 L 208 224"/>
+  <text class="attr" x="178" y="220" font-size="9">n</text>
+  <text class="attr" x="278" y="220" font-size="9">1</text>
+  <path class="line" d="M 98 186 L 98 124 L 258 124"/>
+  <text class="attr" x="88" y="252" font-size="9">n</text>
+  <text class="attr" x="248" y="112" font-size="9">1</text>
+  <path class="line" d="M 156 100 L 244 100 L 244 208 L 368 208"/>
+  <text class="attr" x="158" y="92" font-size="9">1</text>
+  <text class="attr" x="428" y="216" font-size="9">n</text>
 </svg>
