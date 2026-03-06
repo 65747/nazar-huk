@@ -27,8 +27,39 @@ const translations = {
     autres_projets: "Autres projets",
     project_title: "Plateforme de Gestion des Soutenances — UCA",
     project_subtitle: "Gestion et analyse des soutenances et alternances",
-    project_planner_title: "Android Planner",
-    project_planner_desc: "Application de planification et gestion des tâches pour Android.",
+    project_planner_title: "AI Smart Planner",
+    project_planner_desc: "App Android : IA (LLM) pour transformer texte/voix en tâches et créneaux.",
+    planner_title: "AI Smart Planner",
+    planner_subtitle: "App Android : IA (LLM) pour parsing texte/voix en tâches et créneaux",
+    planner_context: "App Android dont le cœur est un LLM (Supabase Edge Functions) : l'IA détermine automatiquement l'heure et le type de tâche en s'appuyant sur la mémoire (préférences, habitudes) et les presets. L'utilisateur décrit ses tâches en texte ou à la voix, le modèle renvoie un emploi du temps structuré. Autres fonctions : connexion email/Google, multilingue, thème clair/sombre, widget d'accueil.",
+    planner_obj1: "Mettre l'IA (LLM) au cœur du parsing texte/voix → tâches et créneaux horaires",
+    planner_obj2: "Intégrer une Edge Function Supabase avec LLM et contexte (presets, mémoire)",
+    planner_obj3: "Offrir saisie vocale, presets, mémoire des habitudes (sync), auth email/Google",
+    planner_obj4: "Livrer une app native (Compose), multilingue, widget et notifications",
+    planner_mission1: "Conception du flux parsing IA : requête vers Edge Function, format requête/réponse (ParseRequest, SchedulePayload)",
+    planner_mission2: "Implémentation du client Android (Ktor, AuthenticatedApi), gestion token Bearer et refresh 401",
+    planner_mission3: "Écrans Compose (MainScreen, Login, Presets, Memory, Settings), ViewModels et répos (Room, DataStore)",
+    planner_mission4: "Auth Supabase (email/Google), mémoire et presets (Room + sync Edge Function memory/sync)",
+    planner_mission5: "Widget Glance, WorkManager, notifications, multilingue et thème clair/sombre",
+    planner_step1_title: "Choix du stack et architecture",
+    planner_step1_desc: "Kotlin, Compose, Hilt, Room, DataStore, Ktor, Supabase. Structure UI → ViewModel → Repository, modèles domaine / DTO / Entity.",
+    planner_step2_title: "Edge Function et parsing IA",
+    planner_step2_desc: "Edge Function « parse » avec LLM, entrée (texte, presets, mémoire), sortie SchedulePayload. Intégration côté app (AuthenticatedApi).",
+    planner_step3_title: "Écrans et couche données",
+    planner_step3_desc: "MainScreen (saisie, liste tâches, presets, voix), Login, Presets, Memory, Settings. TaskRepository, MemoryRepository, PresetRepository, SettingsRepository.",
+    planner_step4_title: "Auth, widget, i18n et finition",
+    planner_step4_desc: "Supabase Auth (email, Google), restauration de session. Glance widget, WorkManager, notifications. Localisation (FR, EN, etc.) et thème.",
+    planner_skill1: "Intégration LLM (Edge Functions) et conception du flux parsing IA",
+    planner_skill2: "Android natif : Jetpack Compose, Hilt, Room, DataStore, Ktor",
+    planner_skill3: "Supabase : Auth, Edge Functions, modèles requête/réponse",
+    planner_skill4: "Architecture propre : UI → ViewModel → Repository, domaine / DTO / Entity",
+    planner_arch_title: "Architecture",
+    planner_arch: "UI (Compose Screens) → ViewModel (StateFlow, répos) → Repository (Room, DataStore, AuthenticatedApi). AuthManager + Supabase Auth ; requêtes protégées via Ktor (Bearer, refresh si 401). Parsing IA : Edge Function « parse » avec LLM, prise en compte des presets et de la mémoire utilisateur. Modèles domaine séparés des DTO/Entity.",
+    planner_img1: "Écran principal",
+    planner_img2: "Presets",
+    planner_img3: "Mémoire",
+    planner_img4: "Paramètres",
+    planner_img5: "Écran",
     project_brawl_title: "Contrôleur automatique pour Brawl Stars",
     project_brawl_desc: "Assistant IA avec détection d'objets en temps réel (YOLOv8) pour Brawl Stars.",
     project_db_title: "Conception et réalisation de bases de données",
@@ -113,39 +144,39 @@ const translations = {
     
     // Context
     context_title: "Contexte et Sujet",
-    context_text: "Dans le cadre d'un projet universitaire à l'Université Clermont Auvergne, j'ai participé au développement d'une application web de gestion des soutenances et alternances. L'application a été conçue pour répondre aux besoins du corps enseignant qui avait besoin d'un outil centralisé pour gérer les évaluations des étudiants, les grilles d'évaluation et le suivi des stages.",
+    context_text: "Projet universitaire (UCA) : application web de gestion des soutenances et alternances. Outil centralisé pour les enseignants : évaluations, grilles d'évaluation, suivi des stages.",
     
     // Objectives
     objectives_title: "Objectifs du Projet",
-    obj_1: "Créer une interface intuitive pour les enseignants et administrateurs",
-    obj_2: "Centraliser la gestion des soutenances et alternances",
-    obj_3: "Automatiser la génération des grilles d'évaluation",
-    obj_4: "Fournir des outils analytiques pour suivre la progression des étudiants",
-    obj_5: "Sécuriser l'accès avec un système d'authentification basé sur les rôles",
+    obj_1: "Interface intuitive enseignants / administrateurs",
+    obj_2: "Centralisation soutenances et alternances",
+    obj_3: "Génération automatisée des grilles d'évaluation",
+    obj_4: "Outils d'analyse et suivi de la progression",
+    obj_5: "Authentification et droits par rôle",
     
     // Missions
     missions_title: "Missions Principales",
-    mission_1: "Conception et modélisation de la base de données relationnelle",
-    mission_2: "Développement des interfaces enseignant et administrateur",
-    mission_3: "Mise en place du système d'authentification et d'autorisation",
-    mission_4: "Création des fonctionnalités de gestion des grilles d'évaluation",
-    mission_5: "Développement du module d'analyse de données et statistiques",
-    mission_6: "Rédaction de la documentation technique",
+    mission_1: "Conception et modélisation BDD relationnelle",
+    mission_2: "Interfaces enseignant et administrateur",
+    mission_3: "Authentification et autorisation",
+    mission_4: "Gestion des grilles d'évaluation",
+    mission_5: "Module statistiques et analyse de données",
+    mission_6: "Documentation technique",
     
     // Project Steps
     steps_title: "Étapes du Projet",
-    step1_title: "Analyse de la Base de Données",
-    step1_desc: "Étude de la structure de la base existante, compréhension des relations entre tables, identification des données nécessaires pour les interfaces",
-    step2_title: "Développement de la Page d'Authentification",
-    step2_desc: "Création de la page de connexion avec vérification des rôles (enseignant/administrateur), gestion des sessions, sécurisation des accès",
-    step3_title: "Développement de l'Interface Enseignant",
-    step3_desc: "Création du tableau de bord pour visualiser les soutenances, affichage des informations étudiants, gestion des données personnelles",
-    step4_title: "Développement de l'Interface Administrateur",
-    step4_desc: "Création du panneau de gestion des grilles d'évaluation, CRUD pour les ressources (ajouter, modifier, supprimer), gestion des utilisateurs",
-    step5_title: "Module d'Analyse de Données",
-    step5_desc: "Développement de la page statistiques, requêtes SQL pour l'agrégation des données, visualisation des résultats en tableaux et graphiques",
-    step6_title: "Tests et Documentation",
-    step6_desc: "Tests des fonctionnalités, correction des bugs, rédaction de la documentation technique pour la maintenance future",
+    step1_title: "Analyse BDD",
+    step1_desc: "Structure existante, relations entre tables, données nécessaires aux interfaces.",
+    step2_title: "Page d'authentification",
+    step2_desc: "Connexion, vérification des rôles (enseignant / admin), gestion de session.",
+    step3_title: "Interface enseignant",
+    step3_desc: "Tableau de bord soutenances, affichage infos étudiants, données personnelles.",
+    step4_title: "Interface administrateur",
+    step4_desc: "Panneau grilles d'évaluation, CRUD ressources, gestion utilisateurs.",
+    step5_title: "Module d'analyse",
+    step5_desc: "Page statistiques, requêtes SQL d'agrégation, tableaux et graphiques.",
+    step6_title: "Tests et documentation",
+    step6_desc: "Tests fonctionnels, corrections, documentation technique.",
     
     // Skills
     skills_title: "Compétences Mobilisées",
@@ -175,8 +206,8 @@ const translations = {
     ac5: "Collaborer au sein d'une équipe informatique",
     
     // Conclusion
-    conclusion_title: "Conclusion et Réflexion",
-    conclusion_text: "Ce projet m'a permis d'appliquer mes connaissances théoriques à un cas réel. J'ai appris à travailler en équipe, à gérer les délais et à m'adapter aux besoins des utilisateurs. Les principaux défis étaient la conception de la base de données et la gestion des différents rôles utilisateurs. Cette expérience a renforcé mon intérêt pour le développement web et la gestion de données. À l'avenir, j'aimerais explorer des solutions cloud pour ce type d'application.",
+    conclusion_title: "Conclusion",
+    conclusion_text: "Application des acquis à un cas réel (équipe, délais, besoins utilisateurs). Défis principaux : conception BDD et gestion des rôles. Piste d'évolution : déploiement cloud.",
     
     // Screenshot captions
     img_login: "Page d'authentification",
@@ -216,8 +247,39 @@ const translations = {
     autres_projets: "Other Projects",
     project_title: "Defense Management Platform — UCA",
     project_subtitle: "Management and analysis of thesis defenses and internships",
-    project_planner_title: "Android Planner",
-    project_planner_desc: "Task planning and management app for Android.",
+    project_planner_title: "AI Smart Planner",
+    project_planner_desc: "Android app: AI (LLM) turns text/voice into tasks and time slots.",
+    planner_title: "AI Smart Planner",
+    planner_subtitle: "Android app: AI (LLM) for parsing text/voice into tasks and time slots",
+    planner_context: "Android app built around a server-side LLM (Supabase Edge Functions): the AI automatically determines time and task type using what is in memory (preferences, habits) and presets. The user describes their tasks in text or by voice, the model returns a structured schedule. Other features: email/Google sign-in, multilingual, light/dark theme, home-screen widget.",
+    planner_obj1: "Make AI (LLM) the core of text/voice parsing → tasks and time slots",
+    planner_obj2: "Integrate a Supabase Edge Function with LLM and context (presets, memory)",
+    planner_obj3: "Provide voice input, presets, habit memory (sync), email/Google auth",
+    planner_obj4: "Deliver a native app (Compose), multilingual, widget and notifications",
+    planner_mission1: "Design of AI parsing flow: request to Edge Function, request/response format (ParseRequest, SchedulePayload)",
+    planner_mission2: "Android client implementation (Ktor, AuthenticatedApi), Bearer token and 401 refresh handling",
+    planner_mission3: "Compose screens (MainScreen, Login, Presets, Memory, Settings), ViewModels and repos (Room, DataStore)",
+    planner_mission4: "Supabase Auth (email/Google), memory and presets (Room + Edge Function memory/sync)",
+    planner_mission5: "Glance widget, WorkManager, notifications, multilingual and light/dark theme",
+    planner_step1_title: "Stack and architecture choices",
+    planner_step1_desc: "Kotlin, Compose, Hilt, Room, DataStore, Ktor, Supabase. UI → ViewModel → Repository structure, domain / DTO / Entity models.",
+    planner_step2_title: "Edge Function and AI parsing",
+    planner_step2_desc: "Edge Function « parse » with LLM, input (text, presets, memory), output SchedulePayload. App-side integration (AuthenticatedApi).",
+    planner_step3_title: "Screens and data layer",
+    planner_step3_desc: "MainScreen (input, task list, presets, voice), Login, Presets, Memory, Settings. TaskRepository, MemoryRepository, PresetRepository, SettingsRepository.",
+    planner_step4_title: "Auth, widget, i18n and polish",
+    planner_step4_desc: "Supabase Auth (email, Google), session restore. Glance widget, WorkManager, notifications. Localisation (FR, EN, etc.) and theme.",
+    planner_skill1: "LLM integration (Edge Functions) and AI parsing flow design",
+    planner_skill2: "Native Android: Jetpack Compose, Hilt, Room, DataStore, Ktor",
+    planner_skill3: "Supabase: Auth, Edge Functions, request/response models",
+    planner_skill4: "Clean architecture: UI → ViewModel → Repository, domain / DTO / Entity",
+    planner_arch_title: "Architecture",
+    planner_arch: "UI (Compose Screens) → ViewModel (StateFlow, repos) → Repository (Room, DataStore, AuthenticatedApi). AuthManager + Supabase Auth; protected requests via Ktor (Bearer, refresh on 401). AI parsing: Edge Function « parse » with LLM, using presets and user memory. Domain models separate from DTO/Entity.",
+    planner_img1: "Main screen",
+    planner_img2: "Presets",
+    planner_img3: "Memory",
+    planner_img4: "Settings",
+    planner_img5: "Screen",
     project_brawl_title: "Automatic controller for Brawl Stars",
     project_brawl_desc: "AI assistant with real-time object detection (YOLOv8) for Brawl Stars.",
     project_db_title: "Database design and implementation",
@@ -275,39 +337,39 @@ const translations = {
     
     // Context
     context_title: "Context and Subject",
-    context_text: "As part of a university project at Université Clermont Auvergne, I participated in the development of a web application for managing thesis defenses and internships. The application was designed to meet the needs of the teaching staff who needed a centralized tool to manage student evaluations, evaluation grids, and tracking of internships.",
+    context_text: "University project (UCA): web application for managing thesis defenses and internships. Centralized tool for teaching staff: evaluations, evaluation grids, internship tracking.",
     
     // Objectives
     objectives_title: "Project Objectives",
-    obj_1: "Create an intuitive interface for teachers and administrators",
-    obj_2: "Centralize management of thesis defenses and internships",
-    obj_3: "Automate the generation of evaluation grids",
-    obj_4: "Provide analytical tools to track student progress",
-    obj_5: "Secure access with a role-based authentication system",
+    obj_1: "Intuitive interface for teachers and administrators",
+    obj_2: "Centralized management of defenses and internships",
+    obj_3: "Automated evaluation grid generation",
+    obj_4: "Analytics and progress tracking",
+    obj_5: "Role-based authentication",
     
     // Missions
     missions_title: "Main Missions",
-    mission_1: "Design and modeling of the relational database",
-    mission_2: "Development of teacher and administrator interfaces",
-    mission_3: "Implementation of the authentication and authorization system",
-    mission_4: "Creation of evaluation grids management features",
-    mission_5: "Development of the data analysis and statistics module",
-    mission_6: "Writing technical documentation",
+    mission_1: "Relational database design and modeling",
+    mission_2: "Teacher and administrator interfaces",
+    mission_3: "Authentication and authorization",
+    mission_4: "Evaluation grids management",
+    mission_5: "Statistics and data analysis module",
+    mission_6: "Technical documentation",
     
     // Project Steps
     steps_title: "Project Steps",
-    step1_title: "Database Analysis",
-    step1_desc: "Study of the existing database structure, understanding of table relationships, identification of necessary data for interfaces",
-    step2_title: "Authentication Page Development",
-    step2_desc: "Creation of login page with role verification (teacher/administrator), session management, access security",
-    step3_title: "Teacher Interface Development",
-    step3_desc: "Dashboard creation for thesis defense viewing, student information display, personal data management",
-    step4_title: "Administrator Interface Development",
-    step4_desc: "Creation of management panel for evaluation grids, CRUD for resources (add, edit, delete), user management",
-    step5_title: "Data Analysis Module",
-    step5_desc: "Development of statistics page, SQL queries for data aggregation, visualization of results in tables and charts",
-    step6_title: "Testing and Documentation",
-    step6_desc: "Functionality testing, bug fixing, writing technical documentation for future maintenance",
+    step1_title: "Database analysis",
+    step1_desc: "Existing structure, table relationships, data required for interfaces.",
+    step2_title: "Authentication page",
+    step2_desc: "Login, role verification (teacher/admin), session management.",
+    step3_title: "Teacher interface",
+    step3_desc: "Defenses dashboard, student info display, personal data.",
+    step4_title: "Administrator interface",
+    step4_desc: "Evaluation grids panel, resource CRUD, user management.",
+    step5_title: "Analysis module",
+    step5_desc: "Statistics page, SQL aggregation queries, tables and charts.",
+    step6_title: "Testing and documentation",
+    step6_desc: "Functional testing, bug fixes, technical documentation.",
     
     // Skills
     skills_title: "Skills Mobilized",
@@ -337,8 +399,8 @@ const translations = {
     ac5: "Collaborate within an IT team",
     
     // Conclusion
-    conclusion_title: "Conclusion and Reflection",
-    conclusion_text: "This project allowed me to apply my theoretical knowledge to a real-world case. I learned how to work in a team, manage deadlines, and adapt to user needs. The main challenges were database design and managing different user roles. This experience reinforced my interest in web development and data management. In the future, I would like to explore cloud solutions for this type of application.",
+    conclusion_title: "Conclusion",
+    conclusion_text: "Applied skills to a real case (teamwork, deadlines, user needs). Main challenges: database design and role management. Possible evolution: cloud deployment.",
     
     // Screenshot captions
     img_login: "Authentication Page",
@@ -418,9 +480,9 @@ function navigateTo(pageName) {
   window.scrollTo(0, 0);
 }
 
-// Project IDs: 'soutenances-uca', 'brawl' (full detail), 'planner' (simple placeholder)
 const PROJECT_DETAIL_PAGES = {
   'soutenances-uca': 'project-detail',
+  'planner': 'project-detail-planner',
   'brawl': 'project-detail-brawl',
   'database': 'project-detail-database'
 };
@@ -428,6 +490,7 @@ const PROJECT_DETAIL_PAGES = {
 function openProject(projectId) {
   const aboutPage = document.querySelector('[data-page="about"]');
   const projectDetailPage = document.querySelector('[data-page="project-detail"]');
+  const projectDetailPlanner = document.querySelector('[data-page="project-detail-planner"]');
   const projectDetailBrawl = document.querySelector('[data-page="project-detail-brawl"]');
   const projectDetailDatabase = document.querySelector('[data-page="project-detail-database"]');
   const projectDetailSimple = document.querySelector('[data-page="project-detail-simple"]');
@@ -437,6 +500,7 @@ function openProject(projectId) {
   
   aboutPage.classList.remove('active');
   if (projectDetailPage) projectDetailPage.classList.remove('active');
+  if (projectDetailPlanner) projectDetailPlanner.classList.remove('active');
   if (projectDetailBrawl) projectDetailBrawl.classList.remove('active');
   if (projectDetailDatabase) projectDetailDatabase.classList.remove('active');
   if (projectDetailSimple) projectDetailSimple.classList.remove('active');
@@ -444,6 +508,8 @@ function openProject(projectId) {
   const detailPage = PROJECT_DETAIL_PAGES[projectId];
   if (detailPage === 'project-detail' && projectDetailPage) {
     projectDetailPage.classList.add('active');
+  } else if (detailPage === 'project-detail-planner' && projectDetailPlanner) {
+    projectDetailPlanner.classList.add('active');
   } else if (detailPage === 'project-detail-brawl' && projectDetailBrawl) {
     projectDetailBrawl.classList.add('active');
   } else if (detailPage === 'project-detail-database' && projectDetailDatabase) {
@@ -485,12 +551,14 @@ function getProjectSimpleContent(projectId) {
 function goBack() {
   const aboutPage = document.querySelector('[data-page="about"]');
   const projectDetailPage = document.querySelector('[data-page="project-detail"]');
+  const projectDetailPlanner = document.querySelector('[data-page="project-detail-planner"]');
   const projectDetailBrawl = document.querySelector('[data-page="project-detail-brawl"]');
   const projectDetailDatabase = document.querySelector('[data-page="project-detail-database"]');
   const projectDetailSimple = document.querySelector('[data-page="project-detail-simple"]');
   const navigationLinks = document.querySelectorAll("[data-nav-link]");
   
   if (projectDetailPage) projectDetailPage.classList.remove('active');
+  if (projectDetailPlanner) projectDetailPlanner.classList.remove('active');
   if (projectDetailBrawl) projectDetailBrawl.classList.remove('active');
   if (projectDetailDatabase) projectDetailDatabase.classList.remove('active');
   if (projectDetailSimple) projectDetailSimple.classList.remove('active');

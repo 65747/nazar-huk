@@ -292,9 +292,9 @@
 
           <h3 class="h3 projects-subtitle" data-i18n="projets_principaux">Projets principaux</h3>
           <ul class="projects-grid projects-grid-main">
-            <li class="project-card-main project-card-main--icon" data-project="planner" data-theme-color="#3DDC84" onclick="openProject('planner')">
-              <figure class="project-card-main-img">
-                <img src="./assets/images/icon-app.svg" alt="Android Planner" loading="lazy">
+            <li class="project-card-main" data-project="planner" data-theme-color="#3DDC84" onclick="openProject('planner')">
+              <figure class="project-card-main-img project-card-main-img--cover">
+                <img src="./assets/images/planner-1.jpg" alt="AI Smart Planner" loading="lazy">
                 <div class="project-card-main-overlay">
                   <h4 class="project-card-main-title" data-i18n="project_planner_title">Android Planner</h4>
                   <p class="project-card-main-desc" data-i18n="project_planner_desc">Application de planification et gestion des tâches pour Android.</p>
@@ -476,15 +476,6 @@
               <span class="tag" data-i18n="skill_communication">Communication</span>
               <span class="tag" data-i18n="skill_analysis">Needs Analysis</span>
               <span class="tag" data-i18n="skill_documentation">Technical Documentation</span>
-            </div>
-
-            <h4 class="h4 skills-subtitle" data-i18n="human_qualities">Human Qualities</h4>
-            <div class="project-tags">
-              <span class="tag" data-i18n="quality_rigor">Rigor</span>
-              <span class="tag" data-i18n="quality_autonomy">Autonomy</span>
-              <span class="tag" data-i18n="quality_adaptability">Adaptability</span>
-              <span class="tag" data-i18n="quality_curiosity">Curiosity</span>
-              <span class="tag" data-i18n="quality_listening">Active Listening</span>
             </div>
           </section>
 
@@ -890,14 +881,171 @@
         </div>
       </article>
 
-      <!-- Project detail (simple placeholder for planner, etc.) -->
+      <!-- Project detail: AI Smart Planner (Android) -->
+      <article class="project-detail" data-page="project-detail-planner">
+        <header class="project-detail-header">
+          <button class="back-btn" data-back-btn onclick="goBack()">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+            <span data-i18n="back">Retour</span>
+          </button>
+          <h2 class="h2 article-title" data-i18n="planner_title">AI Smart Planner</h2>
+          <p class="project-subtitle" data-i18n="planner_subtitle">App Android : IA (LLM) pour parsing texte/voix en tâches et créneaux</p>
+        </header>
+        <div class="project-detail-content">
+
+          <div class="project-hero project-hero--double">
+            <img src="./assets/images/planner-4.jpg" alt="AI Smart Planner — écran principal" loading="lazy">
+            <img src="./assets/images/planner-1.jpg" alt="AI Smart Planner — Presets" loading="lazy">
+          </div>
+
+          <section class="project-section">
+            <h3 class="h3" data-i18n="context_title">Contexte et sujet</h3>
+            <p data-i18n="planner_context">Application Android de planification du jour centrée sur l'IA : l'utilisateur saisit (texte ou voix) la description de ses tâches, et un LLM côté serveur (Supabase Edge Functions) parse le tout en emploi du temps avec tâches et créneaux. Fonctionnalités complémentaires : presets de tâches rapides, « mémoire » des habitudes (sync Supabase), auth email/Google, multilingue, thème clair/sombre, widget sur l'écran d'accueil.</p>
+          </section>
+
+          <section class="project-section">
+            <h3 class="h3" data-i18n="objectives_title">Objectifs du projet</h3>
+            <ul class="features-list">
+              <li data-i18n="planner_obj1"></li>
+              <li data-i18n="planner_obj2"></li>
+              <li data-i18n="planner_obj3"></li>
+              <li data-i18n="planner_obj4"></li>
+            </ul>
+          </section>
+
+          <section class="project-section">
+            <h3 class="h3" data-i18n="missions_title">Missions principales</h3>
+            <ul class="features-list">
+              <li data-i18n="planner_mission1"></li>
+              <li data-i18n="planner_mission2"></li>
+              <li data-i18n="planner_mission3"></li>
+              <li data-i18n="planner_mission4"></li>
+              <li data-i18n="planner_mission5"></li>
+            </ul>
+          </section>
+
+          <section class="project-section">
+            <h3 class="h3" data-i18n="steps_title">Étapes du projet</h3>
+            <div class="timeline-project">
+              <div class="timeline-item-project">
+                <span class="timeline-step">1</span>
+                <div class="timeline-content">
+                  <h4 data-i18n="planner_step1_title"></h4>
+                  <p data-i18n="planner_step1_desc"></p>
+                </div>
+              </div>
+              <div class="timeline-item-project">
+                <span class="timeline-step">2</span>
+                <div class="timeline-content">
+                  <h4 data-i18n="planner_step2_title"></h4>
+                  <p data-i18n="planner_step2_desc"></p>
+                </div>
+              </div>
+              <div class="timeline-item-project">
+                <span class="timeline-step">3</span>
+                <div class="timeline-content">
+                  <h4 data-i18n="planner_step3_title"></h4>
+                  <p data-i18n="planner_step3_desc"></p>
+                </div>
+              </div>
+              <div class="timeline-item-project">
+                <span class="timeline-step">4</span>
+                <div class="timeline-content">
+                  <h4 data-i18n="planner_step4_title"></h4>
+                  <p data-i18n="planner_step4_desc"></p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="project-section">
+            <h3 class="h3" data-i18n="skills_title">Compétences mobilisées</h3>
+            <div class="project-tags">
+              <span class="tag">Kotlin</span>
+              <span class="tag">Jetpack Compose</span>
+              <span class="tag">Hilt</span>
+              <span class="tag">Room</span>
+              <span class="tag">DataStore</span>
+              <span class="tag">Ktor</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">LLM / Edge Functions</span>
+              <span class="tag">Glance</span>
+            </div>
+            <ul class="features-list" style="margin-top: 16px;">
+              <li data-i18n="planner_skill1"></li>
+              <li data-i18n="planner_skill2"></li>
+              <li data-i18n="planner_skill3"></li>
+              <li data-i18n="planner_skill4"></li>
+            </ul>
+          </section>
+
+          <section class="project-section">
+            <h3 class="h3" data-i18n="planner_arch_title">Architecture</h3>
+            <p data-i18n="planner_arch">UI (Compose Screens) → ViewModel (StateFlow, répos) → Repository (Room, DataStore, AuthenticatedApi). AuthManager + Supabase Auth ; requêtes protégées via Ktor (Bearer, refresh si 401). Parsing IA : Edge Function « parse » avec LLM, prise en compte des presets et de la mémoire utilisateur. Modèles domaine séparés des DTO/Entity.</p>
+          </section>
+
+          <section class="project-section">
+            <h3 class="h3" data-i18n="tools_title">Stack / outils</h3>
+            <div class="project-tags">
+              <span class="tag">Kotlin</span>
+              <span class="tag">Jetpack Compose</span>
+              <span class="tag">Hilt</span>
+              <span class="tag">Room</span>
+              <span class="tag">DataStore</span>
+              <span class="tag">Ktor</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">Glance</span>
+              <span class="tag">WorkManager</span>
+            </div>
+          </section>
+
+          <section class="project-gallery">
+            <h3 class="h3" data-i18n="screenshots">Captures d'écran</h3>
+            <div class="gallery-grid">
+              <div class="gallery-item" data-gallery-item>
+                <figure class="gallery-img">
+                  <img src="./assets/images/planner-4.jpg" alt="AI Smart Planner" loading="lazy" data-modal-img>
+                </figure>
+                <p class="gallery-caption" data-i18n="planner_img1">Écran principal</p>
+              </div>
+              <div class="gallery-item" data-gallery-item>
+                <figure class="gallery-img">
+                  <img src="./assets/images/planner-1.jpg" alt="AI Smart Planner" loading="lazy" data-modal-img>
+                </figure>
+                <p class="gallery-caption" data-i18n="planner_img2">Presets</p>
+              </div>
+              <div class="gallery-item" data-gallery-item>
+                <figure class="gallery-img">
+                  <img src="./assets/images/planner-3.jpg" alt="AI Smart Planner" loading="lazy" data-modal-img>
+                </figure>
+                <p class="gallery-caption" data-i18n="planner_img3">Mémoire</p>
+              </div>
+              <div class="gallery-item" data-gallery-item>
+                <figure class="gallery-img">
+                  <img src="./assets/images/planner-2.jpg" alt="AI Smart Planner" loading="lazy" data-modal-img>
+                </figure>
+                <p class="gallery-caption" data-i18n="planner_img4">Paramètres</p>
+              </div>
+              <div class="gallery-item" data-gallery-item>
+                <figure class="gallery-img">
+                  <img src="./assets/images/planner-5.jpg" alt="AI Smart Planner" loading="lazy" data-modal-img>
+                </figure>
+                <p class="gallery-caption" data-i18n="planner_img5">Écran</p>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </article>
+
+      <!-- Project detail (simple placeholder) -->
       <article class="project-detail project-detail-simple" data-page="project-detail-simple">
         <header class="project-detail-header">
           <button class="back-btn" data-back-btn onclick="goBack()">
             <ion-icon name="arrow-back-outline"></ion-icon>
             <span data-i18n="back">Back</span>
           </button>
-          <h2 class="h2 article-title" data-simple-title>Android Planner</h2>
+          <h2 class="h2 article-title" data-simple-title>AI Smart Planner</h2>
         </header>
         <div class="project-detail-content">
           <p class="project-simple-desc" data-simple-desc>Description à compléter.</p>
