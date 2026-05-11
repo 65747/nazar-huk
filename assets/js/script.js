@@ -110,6 +110,10 @@ const translations = {
     skill_ui: "UI / UX Design",
     screenshots: "Captures d'écran",
     view_github: "Voir sur GitHub",
+    status_available: "Disponible",
+    stat_projects: "Projets",
+    stat_technologies: "Technologies",
+    stat_languages: "Langues",
     
     // Context
     context_title: "Contexte et Sujet",
@@ -272,6 +276,10 @@ const translations = {
     skill_ui: "UI / UX Design",
     screenshots: "Screenshots",
     view_github: "View on GitHub",
+    status_available: "Available",
+    stat_projects: "Projects",
+    stat_technologies: "Technologies",
+    stat_languages: "Languages",
     
     // Context
     context_title: "Context and Subject",
@@ -608,6 +616,229 @@ function navigateModal(direction) {
 // =============================================
 
 document.addEventListener('DOMContentLoaded', function() {
+  
+  // =============================================
+  // CUSTOM CURSOR
+  // =============================================
+  
+  const cursor = document.querySelector('[data-cursor]');
+  const follower = document.querySelector('[data-cursor-follower]');
+  let cursorX = 0, cursorY = 0, followerX = 0, followerY = 0;
+  
+  if (cursor && follower && window.matchMedia('(pointer: fine)').matches) {
+    document.addEventListener('mousemove', (e) => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+      cursor.style.transform = `translate(${cursorX - 4}px, ${cursorY - 4}px)`;
+    });
+    
+    function animateFollower() {
+      followerX += (cursorX - followerX) * 0.12;
+      followerY += (cursorY - followerY) * 0.12;
+      follower.style.transform = `translate(${followerX - 16}px, ${followerY - 16}px)`;
+      requestAnimationFrame(animateFollower);
+    }
+    animateFollower();
+    
+    document.querySelectorAll('a, button, .project-card, .project-card-main, .gallery-item').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('cursor--active');
+        follower.classList.add('cursor-follower--active');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('cursor--active');
+        follower.classList.remove('cursor-follower--active');
+      });
+    });
+  } else {
+    if (cursor) cursor.style.display = 'none';
+    if (follower) follower.style.display = 'none';
+  }
+  
+  // =============================================
+  // SCROLL ANIMATIONS (Intersection Observer)
+  // =============================================
+  
+  function initScrollAnimations() {
+    const animTargets = [
+      '.project-section',
+      '.skills-item',
+      '.project-card',
+      '.project-card-main',
+      '.gallery-item',
+      '.tool-item',
+      '.competency-item',
+      '.timeline-item-project',
+      '.contact-form',
+      '.about-text',
+      '.skills-section',
+      '.projects-section',
+      '.stats-section',
+      '.stat-item'
+    ];
+    
+    animTargets.forEach(selector => {
+      document.querySelectorAll(selector).forEach(el => {
+        if (!el.classList.contains('animate-on-scroll')) {
+          el.classList.add('animate-on-scroll');
+        }
+      });
+    });
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.06,
+      rootMargin: '0px 0px -30px 0px'
+    });
+    
+    document.querySelectorAll('.animate-on-scroll:not(.animated)').forEach(el => {
+      observer.observe(el);
+    });
+  }
+  
+  initScrollAnimations();
+  
+  function reinitAfterNav() {
+    setTimeout(() => {
+      initScrollAnimations();
+      initTiltEffect();
+      initCounterAnimation();
+    }, 120);
+  }
+  
+  const originalNavigateTo = window.navigateTo;
+  const origOpenProject = window.openProject;
+  const origGoBack = window.goBack;
+  
+  window.navigateTo = function(pageName) {
+    originalNavigateTo(pageName);
+    reinitAfterNav();
+  };
+  
+  window.openProject = function(projectId) {
+    origOpenProject(projectId);
+    reinitAfterNav();
+  };
+  
+  window.goBack = function() {
+    origGoBack();
+    reinitAfterNav();
+  };
+  
+  // =============================================
+  // SKILL BAR ANIMATION
+  // =============================================
+  
+  const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const fills = entry.target.querySelectorAll('.skill-progress-fill');
+        fills.forEach(fill => {
+          const width = fill.style.width;
+          fill.style.width = '0%';
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              fill.style.width = width;
+            });
+          });
+        });
+        skillObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  
+  document.querySelectorAll('.skills-section').forEach(section => {
+    skillObserver.observe(section);
+  });
+  
+  // =============================================
+  // COUNTER ANIMATION (Stats)
+  // =============================================
+  
+  function initCounterAnimation() {
+    const counters = document.querySelectorAll('[data-count]');
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+          entry.target.dataset.counted = 'true';
+          const target = parseInt(entry.target.dataset.count);
+          let current = 0;
+          const duration = 1200;
+          const step = target / (duration / 16);
+          
+          function updateCounter() {
+            current += step;
+            if (current >= target) {
+              entry.target.textContent = target;
+            } else {
+              entry.target.textContent = Math.floor(current);
+              requestAnimationFrame(updateCounter);
+            }
+          }
+          requestAnimationFrame(updateCounter);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(c => counterObserver.observe(c));
+  }
+  
+  initCounterAnimation();
+  
+  // =============================================
+  // 3D TILT EFFECT ON CARDS
+  // =============================================
+  
+  function initTiltEffect() {
+    const tiltCards = document.querySelectorAll('.project-card, .project-card-main');
+    
+    tiltCards.forEach(card => {
+      if (card.dataset.tiltInit) return;
+      card.dataset.tiltInit = 'true';
+      
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4;
+        const rotateY = ((x - centerX) / centerX) * 4;
+        
+        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
+      });
+    });
+  }
+  
+  initTiltEffect();
+  
+  // =============================================
+  // MAGNETIC EFFECT ON BUTTONS
+  // =============================================
+  
+  document.querySelectorAll('.form-btn, .project-link-btn, .back-btn').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0, 0)';
+    });
+  });
   
   // =============================================
   // LANGUAGE INITIALIZATION
