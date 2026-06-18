@@ -5,7 +5,7 @@
 const translations = {
   fr: {
     // Navigation
-    about: "À propos",
+    about: "Compétences",
     contact: "Contact",
     back: "Retour",
     
@@ -16,9 +16,12 @@ const translations = {
     location: "Localisation",
     city: "Clermont-Ferrand, France",
     
-    // About section
-    about_text_1: "Bienvenue sur mon portfolio. Je suis un développeur passionné, spécialisé dans le développement web et la gestion de bases de données.",
-    about_text_2: "Je crée des applications web modernes et performantes, avec un accent sur l'expérience utilisateur et un code propre.",
+    // About section — competencies
+    comp_frontend: "Frontend",
+    comp_mobile: "Mobile",
+    comp_database: "Base de données",
+    comp_languages: "Langages",
+    comp_tools: "Outils",
     
     // Projects
     my_projects: "Mes Projets",
@@ -225,7 +228,7 @@ const translations = {
   },
   en: {
     // Navigation
-    about: "About",
+    about: "Skills",
     contact: "Contact",
     back: "Back",
     
@@ -236,9 +239,12 @@ const translations = {
     location: "Location",
     city: "Clermont-Ferrand, France",
     
-    // About section
-    about_text_1: "Welcome to my portfolio. I am a passionate developer specializing in web development and database management.",
-    about_text_2: "I create modern, efficient web applications with a focus on user experience and clean code.",
+    // About section — competencies
+    comp_frontend: "Frontend",
+    comp_mobile: "Mobile",
+    comp_database: "Database",
+    comp_languages: "Languages",
+    comp_tools: "Tools",
     
     // Projects
     my_projects: "My Projects",

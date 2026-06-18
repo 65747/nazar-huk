@@ -22,7 +22,7 @@
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -40,10 +40,6 @@
     <aside class="sidebar" data-sidebar>
 
       <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="фото" width="80">
-        </figure>
 
         <div class="info-content">
           <h1 class="name" title="Nazar Huk">Nazar Huk</h1>
@@ -143,7 +139,7 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link data-i18n="about" onclick="navigateTo('about')">About</button>
+            <button class="navbar-link active" data-nav-link data-i18n="about" onclick="navigateTo('about')">Compétences</button>
           </li>
 
           <li class="navbar-item">
@@ -165,122 +161,30 @@
       <article class="about active" data-page="about">
 
         <header>
-          <h2 class="h2 article-title" data-i18n="about">About</h2>
+          <h2 class="h2 article-title" data-i18n="about">Compétences</h2>
         </header>
 
-        <section class="about-text">
-          <p data-i18n="about_text_1">
-            Welcome to my portfolio. I am a passionate developer specializing in web development and database management.
-          </p>
-
-          <p data-i18n="about_text_2">
-            I create modern, efficient web applications with a focus on user experience and clean code.
-          </p>
-        </section>
-
-
-        <!-- My Skills (ordered by % descending) -->
-        <section class="skills-section">
-          <h3 class="h3 skills-section-title" data-i18n="my_skills">My Skills</h3>
-          <ul class="skills-list">
-            <li class="skills-item">
-              <div class="skill">
-                <div class="title-wrapper">
-                  <span class="skill-name" data-i18n="skill_web">Web Development</span>
-                  <data class="skill-value" value="85">85%</data>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 85%"></div>
-                </div>
-              </div>
+        <section class="competencies-section">
+          <ul class="competencies-list">
+            <li class="competency-row">
+              <span class="competency-label" data-i18n="comp_frontend">Frontend</span>
+              <span class="competency-values">HTML · CSS · JavaScript · PHP</span>
             </li>
-            <li class="skills-item">
-              <div class="skill">
-                <div class="title-wrapper">
-                  <span class="skill-name" data-i18n="skill_sql">SQL / Databases</span>
-                  <data class="skill-value" value="80">80%</data>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 80%"></div>
-                </div>
-              </div>
+            <li class="competency-row">
+              <span class="competency-label" data-i18n="comp_mobile">Mobile</span>
+              <span class="competency-values">Kotlin · Jetpack Compose · Android</span>
             </li>
-            <li class="skills-item">
-              <div class="skill">
-                <div class="title-wrapper">
-                  <span class="skill-name" data-i18n="skill_kotlin">Kotlin (Android)</span>
-                  <data class="skill-value" value="75">75%</data>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 75%"></div>
-                </div>
-              </div>
+            <li class="competency-row">
+              <span class="competency-label" data-i18n="comp_database">Base de données</span>
+              <span class="competency-values">SQL · MySQL · MCD / MLD</span>
             </li>
-            <li class="skills-item">
-              <div class="skill">
-                <div class="title-wrapper">
-                  <span class="skill-name" data-i18n="skill_git">Git / Collaboration</span>
-                  <data class="skill-value" value="70">70%</data>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 70%"></div>
-                </div>
-              </div>
+            <li class="competency-row">
+              <span class="competency-label" data-i18n="comp_languages">Langages</span>
+              <span class="competency-values">Python · C++ · C#</span>
             </li>
-            <li class="skills-item">
-              <div class="skill">
-                <div class="title-wrapper">
-                  <span class="skill-name" data-i18n="skill_roblox">Roblox Studio</span>
-                  <data class="skill-value" value="70">70%</data>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 70%"></div>
-                </div>
-              </div>
-            </li>
-            <li class="skills-item">
-              <div class="skill">
-                <div class="title-wrapper">
-                  <span class="skill-name" data-i18n="skill_python">Python</span>
-                  <data class="skill-value" value="60">60%</data>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 60%"></div>
-                </div>
-              </div>
-            </li>
-            <li class="skills-item">
-              <div class="skill">
-                <div class="title-wrapper">
-                  <span class="skill-name" data-i18n="skill_unity">Unity</span>
-                  <data class="skill-value" value="50">50%</data>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 50%"></div>
-                </div>
-              </div>
-            </li>
-            <li class="skills-item">
-              <div class="skill">
-                <div class="title-wrapper">
-                  <span class="skill-name" data-i18n="skill_cpp">C++</span>
-                  <data class="skill-value" value="50">50%</data>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 50%"></div>
-                </div>
-              </div>
-            </li>
-            <li class="skills-item">
-              <div class="skill">
-                <div class="title-wrapper">
-                  <span class="skill-name" data-i18n="skill_ui">UI / UX Design</span>
-                  <data class="skill-value" value="40">40%</data>
-                </div>
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 40%"></div>
-                </div>
-              </div>
+            <li class="competency-row">
+              <span class="competency-label" data-i18n="comp_tools">Outils</span>
+              <span class="competency-values">Git · VS Code · Supabase · Figma</span>
             </li>
           </ul>
         </section>
@@ -999,7 +903,7 @@
             </div>
           </section>
 
-          <section class="project-gallery">
+          <section class="project-gallery project-gallery--portrait">
             <h3 class="h3" data-i18n="screenshots">Captures d'écran</h3>
             <div class="gallery-grid">
               <div class="gallery-item" data-gallery-item>
@@ -1124,8 +1028,6 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-  <div class="crt-overlay"></div>
 
 </body>
 
