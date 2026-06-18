@@ -10,7 +10,6 @@ const translations = {
     back: "Retour",
     
     // Sidebar
-    specialty: "Développeur Full Stack",
     contacts: "Contacts",
     phone: "Téléphone",
     location: "Localisation",
@@ -233,7 +232,6 @@ const translations = {
     back: "Back",
     
     // Sidebar
-    specialty: "Full Stack Developer",
     contacts: "Contact",
     phone: "Phone",
     location: "Location",
@@ -455,36 +453,8 @@ const translations = {
 let currentLang = 'fr';
 
 // =============================================
-// GLOBAL NAVIGATION FUNCTIONS (for onclick)
+// ROUTING (History API — instant, no reload)
 // =============================================
-
-function navigateTo(pageName) {
-  const pages = document.querySelectorAll("[data-page]");
-  const navigationLinks = document.querySelectorAll("[data-nav-link]");
-  
-  // Hide all pages
-  pages.forEach(page => {
-    page.classList.remove("active");
-  });
-  
-  // Show the target page
-  pages.forEach(page => {
-    if (page.dataset.page === pageName) {
-      page.classList.add("active");
-    }
-  });
-  
-  // Update nav links
-  navigationLinks.forEach(link => {
-    link.classList.remove("active");
-    const linkKey = link.getAttribute('data-i18n');
-    if (linkKey === pageName) {
-      link.classList.add("active");
-    }
-  });
-  
-  window.scrollTo(0, 0);
-}
 
 const PROJECT_DETAIL_PAGES = {
   'soutenances-uca': 'project-detail',
@@ -493,44 +463,144 @@ const PROJECT_DETAIL_PAGES = {
   'database': 'project-detail-database'
 };
 
-function openProject(projectId) {
-  const aboutPage = document.querySelector('[data-page="about"]');
-  const projectDetailPage = document.querySelector('[data-page="project-detail"]');
-  const projectDetailPlanner = document.querySelector('[data-page="project-detail-planner"]');
-  const projectDetailBrawl = document.querySelector('[data-page="project-detail-brawl"]');
-  const projectDetailDatabase = document.querySelector('[data-page="project-detail-database"]');
-  const projectDetailSimple = document.querySelector('[data-page="project-detail-simple"]');
-  const navigationLinks = document.querySelectorAll("[data-nav-link]");
-  
-  if (!aboutPage) return;
-  
-  aboutPage.classList.remove('active');
-  if (projectDetailPage) projectDetailPage.classList.remove('active');
-  if (projectDetailPlanner) projectDetailPlanner.classList.remove('active');
-  if (projectDetailBrawl) projectDetailBrawl.classList.remove('active');
-  if (projectDetailDatabase) projectDetailDatabase.classList.remove('active');
-  if (projectDetailSimple) projectDetailSimple.classList.remove('active');
-  
-  const detailPage = PROJECT_DETAIL_PAGES[projectId];
-  if (detailPage === 'project-detail' && projectDetailPage) {
-    projectDetailPage.classList.add('active');
-  } else if (detailPage === 'project-detail-planner' && projectDetailPlanner) {
-    projectDetailPlanner.classList.add('active');
-  } else if (detailPage === 'project-detail-brawl' && projectDetailBrawl) {
-    projectDetailBrawl.classList.add('active');
-  } else if (detailPage === 'project-detail-database' && projectDetailDatabase) {
-    projectDetailDatabase.classList.add('active');
-  } else if (projectDetailSimple) {
-    const titleEl = projectDetailSimple.querySelector('[data-simple-title]');
-    const descEl = projectDetailSimple.querySelector('[data-simple-desc]');
-    const content = getProjectSimpleContent(projectId);
-    if (titleEl) titleEl.textContent = content.title;
-    if (descEl) descEl.textContent = content.desc;
-    projectDetailSimple.classList.add('active');
+const DEFAULT_ROUTE = { type: 'page', page: 'about' };
+let currentRoute = null;
+
+function parseRouteFromHash() {
+  const raw = window.location.hash.replace(/^#/, '').trim();
+
+  if (!raw || raw === 'about' || raw === 'portfolio' || raw === 'skills') {
+    return { type: 'page', page: 'about' };
   }
-  
-  navigationLinks.forEach(link => link.classList.remove('active'));
-  window.scrollTo(0, 0);
+  if (raw === 'contact') {
+    return { type: 'page', page: 'contact' };
+  }
+  if (raw.startsWith('project/')) {
+    const projectId = decodeURIComponent(raw.slice(8));
+    if (PROJECT_DETAIL_PAGES[projectId]) {
+      return { type: 'project', projectId };
+    }
+  }
+
+  return { ...DEFAULT_ROUTE };
+}
+
+function routeToHash(route) {
+  if (route.type === 'project') {
+    return `#project/${encodeURIComponent(route.projectId)}`;
+  }
+  return route.page === 'contact' ? '#contact' : '#about';
+}
+
+function routesEqual(a, b) {
+  if (!a || !b || a.type !== b.type) return false;
+  return a.type === 'page' ? a.page === b.page : a.projectId === b.projectId;
+}
+
+function showMainPage(pageName) {
+  document.querySelectorAll('[data-page]').forEach(page => {
+    page.classList.toggle('active', page.dataset.page === pageName);
+  });
+
+  document.querySelectorAll('[data-nav-link]').forEach(link => {
+    const linkKey = link.getAttribute('data-i18n');
+    link.classList.toggle('active', linkKey === pageName);
+  });
+}
+
+function showProjectPage(projectId) {
+  document.querySelectorAll('[data-page]').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  const detailPage = PROJECT_DETAIL_PAGES[projectId];
+  if (detailPage) {
+    const el = document.querySelector(`[data-page="${detailPage}"]`);
+    if (el) el.classList.add('active');
+  } else {
+    const projectDetailSimple = document.querySelector('[data-page="project-detail-simple"]');
+    if (projectDetailSimple) {
+      const titleEl = projectDetailSimple.querySelector('[data-simple-title]');
+      const descEl = projectDetailSimple.querySelector('[data-simple-desc]');
+      const content = getProjectSimpleContent(projectId);
+      if (titleEl) titleEl.textContent = content.title;
+      if (descEl) descEl.textContent = content.desc;
+      projectDetailSimple.classList.add('active');
+    }
+  }
+
+  document.querySelectorAll('[data-nav-link]').forEach(link => {
+    link.classList.remove('active');
+  });
+}
+
+function applyRoute(route, options = {}) {
+  if (route.type === 'page') {
+    showMainPage(route.page);
+  } else {
+    showProjectPage(route.projectId);
+  }
+
+  currentRoute = route;
+
+  if (options.scroll) {
+    window.scrollTo(0, 0);
+  }
+}
+
+function navigateRoute(route, options = {}) {
+  const { replace = false } = options;
+
+  if (routesEqual(currentRoute, route) && !replace) {
+    window.scrollTo(0, 0);
+    return;
+  }
+
+  const hash = routeToHash(route);
+  const state = { ...route };
+
+  if (replace) {
+    history.replaceState(state, '', hash);
+  } else {
+    history.pushState(state, '', hash);
+  }
+
+  applyRoute(route, { scroll: true });
+}
+
+function initRouter() {
+  const route = parseRouteFromHash();
+
+  if (!routesEqual(route, DEFAULT_ROUTE)) {
+    history.replaceState({ ...DEFAULT_ROUTE }, '', routeToHash(DEFAULT_ROUTE));
+    history.pushState({ ...route }, '', routeToHash(route));
+  } else {
+    history.replaceState({ ...route }, '', routeToHash(route));
+  }
+
+  applyRoute(route, { scroll: false });
+
+  window.addEventListener('popstate', (event) => {
+    const nextRoute = event.state || parseRouteFromHash();
+    applyRoute(nextRoute, { scroll: true });
+  });
+}
+
+// =============================================
+// GLOBAL NAVIGATION FUNCTIONS (for onclick)
+// =============================================
+
+function navigateTo(pageName) {
+  navigateRoute({ type: 'page', page: pageName });
+}
+
+function openProject(projectId) {
+  if (!PROJECT_DETAIL_PAGES[projectId]) return;
+  navigateRoute({ type: 'project', projectId });
+}
+
+function goBack() {
+  history.back();
 }
 
 // Données pour les projets sans page détaillée (à compléter plus tard)
@@ -552,29 +622,6 @@ function getProjectSimpleContent(projectId) {
     title: translations[currentLang][data.titleKey] || data.titleKey,
     desc: translations[currentLang][data.descKey] || data.descKey
   };
-}
-
-function goBack() {
-  const aboutPage = document.querySelector('[data-page="about"]');
-  const projectDetailPage = document.querySelector('[data-page="project-detail"]');
-  const projectDetailPlanner = document.querySelector('[data-page="project-detail-planner"]');
-  const projectDetailBrawl = document.querySelector('[data-page="project-detail-brawl"]');
-  const projectDetailDatabase = document.querySelector('[data-page="project-detail-database"]');
-  const projectDetailSimple = document.querySelector('[data-page="project-detail-simple"]');
-  const navigationLinks = document.querySelectorAll("[data-nav-link]");
-  
-  if (projectDetailPage) projectDetailPage.classList.remove('active');
-  if (projectDetailPlanner) projectDetailPlanner.classList.remove('active');
-  if (projectDetailBrawl) projectDetailBrawl.classList.remove('active');
-  if (projectDetailDatabase) projectDetailDatabase.classList.remove('active');
-  if (projectDetailSimple) projectDetailSimple.classList.remove('active');
-  if (aboutPage) aboutPage.classList.add('active');
-  
-  navigationLinks.forEach(link => {
-    if (link.getAttribute('data-i18n') === 'about') link.classList.add('active');
-  });
-  
-  window.scrollTo(0, 0);
 }
 
 // =============================================
@@ -683,6 +730,8 @@ function navigateModal(direction) {
 
 document.addEventListener('DOMContentLoaded', function() {
   
+  initRouter();
+  
   // =============================================
   // LANGUAGE INITIALIZATION
   // =============================================
@@ -697,19 +746,6 @@ document.addEventListener('DOMContentLoaded', function() {
       setLanguage(lang);
     });
   });
-  
-  // =============================================
-  // SIDEBAR TOGGLE
-  // =============================================
-  
-  const sidebar = document.querySelector("[data-sidebar]");
-  const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-  
-  if (sidebarBtn && sidebar) {
-    sidebarBtn.addEventListener("click", function() { 
-      sidebar.classList.toggle("active"); 
-    });
-  }
   
   // =============================================
   // IMAGE MODAL (Gallery) - Click handlers
